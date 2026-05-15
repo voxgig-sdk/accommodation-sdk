@@ -1,0 +1,57 @@
+{
+  "existing": {
+    "accommodation": {
+      "ACCOMMODATION00": {
+        "acco_detail": {},
+        "acco_type_id": "ACCO_TYPE01",
+        "active": true,
+        "contact_info": {},
+        "feature": [],
+        "gps_info": [],
+        "id": "ACCOMMODATION00",
+        "last_change": "s6b",
+        "location_info": {},
+        "shortname": "s6d"
+      },
+      "ACCOMMODATION01": {
+        "acco_detail": {},
+        "acco_type_id": "ACCO_TYPE01",
+        "active": true,
+        "contact_info": {},
+        "feature": [],
+        "gps_info": [],
+        "id": "ACCOMMODATION01",
+        "last_change": "scf",
+        "location_info": {},
+        "shortname": "sd1"
+      },
+      "ACCOMMODATION02": {
+        "acco_detail": {},
+        "acco_type_id": "ACCO_TYPE01",
+        "active": true,
+        "contact_info": {},
+        "feature": [],
+        "gps_info": [],
+        "id": "ACCOMMODATION02",
+        "last_change": "s133",
+        "location_info": {},
+        "shortname": "s135"
+      }
+    }
+  },
+  "new": {
+    "accommodation": {
+      "accommodation_ref01": {
+        "acco_detail": {},
+        "acco_type_id": "ACCO_TYPE01",
+        "active": true,
+        "contact_info": {},
+        "feature": [],
+        "gps_info": [],
+        "last_change": "s197",
+        "location_info": {},
+        "shortname": "s199"
+      }
+    }
+  }
+}

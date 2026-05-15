@@ -1,0 +1,319 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Accommodation API",
+    "description": "This API provides access to a comprehensive dataset of accommodations, including hotels, guesthouses, and similar types of lodging. Users can retrieve information on various accommodation options, facilitating planning and booking for travelers.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Open Data Hub",
+      "url": "https://databrowser.opendatahub.com"
+    },
+    "license": {
+      "name": "CC0-1.0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://tourism.opendatahub.com/api",
+      "description": "Open Data Hub Tourism API Server"
+    }
+  ],
+  "paths": {
+    "/Accommodation": {
+      "get": {
+        "summary": "Get accommodations",
+        "description": "Retrieves a list of accommodations including hotels, guesthouses, and similar types of lodging. Supports filtering and pagination to help users find suitable accommodation options.",
+        "operationId": "getAccommodations",
+        "tags": [
+          "Accommodations"
+        ],
+        "parameters": [
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "Number of results to return per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "pagenumber",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "seed",
+            "in": "query",
+            "description": "Seed for random sorting to ensure consistent results",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locfilter",
+            "in": "query",
+            "description": "Filter by location (e.g., region, municipality, or tourism association)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "langfilter",
+            "in": "query",
+            "description": "Language filter for localized content (e.g., en, de, it)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Comma-separated list of fields to include in the response",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchfilter",
+            "in": "query",
+            "description": "Search term to filter accommodations by name or description",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Filter by active status",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "odhactive",
+            "in": "query",
+            "description": "Filter by ODH active status",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with accommodation data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "TotalResults": {
+                      "type": "integer",
+                      "description": "Total number of accommodations matching the query"
+                    },
+                    "TotalPages": {
+                      "type": "integer",
+                      "description": "Total number of pages available"
+                    },
+                    "CurrentPage": {
+                      "type": "integer",
+                      "description": "Current page number"
+                    },
+                    "Seed": {
+                      "type": "string",
+                      "description": "Seed used for random sorting"
+                    },
+                    "Items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Id": {
+                            "type": "string",
+                            "description": "Unique identifier for the accommodation"
+                          },
+                          "AccoTypeId": {
+                            "type": "string",
+                            "description": "Type identifier (e.g., hotel, guesthouse)"
+                          },
+                          "Shortname": {
+                            "type": "string",
+                            "description": "Short name of the accommodation"
+                          },
+                          "AccoDetail": {
+                            "type": "object",
+                            "description": "Detailed information about the accommodation",
+                            "properties": {
+                              "Name": {
+                                "type": "string",
+                                "description": "Full name of the accommodation"
+                              },
+                              "Language": {
+                                "type": "string",
+                                "description": "Language code"
+                              }
+                            }
+                          },
+                          "ContactInfos": {
+                            "type": "object",
+                            "description": "Contact information",
+                            "properties": {
+                              "Address": {
+                                "type": "string",
+                                "description": "Street address"
+                              },
+                              "City": {
+                                "type": "string",
+                                "description": "City name"
+                              },
+                              "ZipCode": {
+                                "type": "string",
+                                "description": "Postal code"
+                              },
+                              "Email": {
+                                "type": "string",
+                                "description": "Email address"
+                              },
+                              "Phonenumber": {
+                                "type": "string",
+                                "description": "Phone number"
+                              },
+                              "Url": {
+                                "type": "string",
+                                "description": "Website URL"
+                              }
+                            }
+                          },
+                          "LocationInfo": {
+                            "type": "object",
+                            "description": "Geographic location information",
+                            "properties": {
+                              "RegionInfo": {
+                                "type": "object",
+                                "properties": {
+                                  "Id": {
+                                    "type": "string"
+                                  },
+                                  "Name": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "GpsInfo": {
+                            "type": "array",
+                            "description": "GPS coordinates",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "Latitude": {
+                                  "type": "number",
+                                  "format": "double"
+                                },
+                                "Longitude": {
+                                  "type": "number",
+                                  "format": "double"
+                                },
+                                "Altitude": {
+                                  "type": "number",
+                                  "format": "double"
+                                }
+                              }
+                            }
+                          },
+                          "Features": {
+                            "type": "array",
+                            "description": "List of features and amenities",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "Id": {
+                                  "type": "string"
+                                },
+                                "Name": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "Active": {
+                            "type": "boolean",
+                            "description": "Whether the accommodation is active"
+                          },
+                          "LastChange": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Last modification timestamp"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Accommodations",
+      "description": "Operations related to accommodation data retrieval"
+    }
+  ]
+}

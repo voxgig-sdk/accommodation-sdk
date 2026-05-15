@@ -1,0 +1,169 @@
+# Entity: accommodation
+
+main: kit: entity: accommodation: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "acco_detail"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "acco_type_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "active"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "contact_info"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "feature"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "gps_info"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_change"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "location_info"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "shortname"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "accommodation"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "active"
+                orig: "active"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "field"
+                orig: "field"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "langfilter"
+                orig: "langfilter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "locfilter"
+                orig: "locfilter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "odhactive"
+                orig: "odhactive"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "pagenumber"
+                orig: "pagenumber"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "pagesize"
+                orig: "pagesize"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "searchfilter"
+                orig: "searchfilter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "seed"
+                orig: "seed"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/Accommodation"
+          parts: [
+            "Accommodation"
+          ]
+          select: {
+            exist: [
+              "active"
+              "field"
+              "langfilter"
+              "locfilter"
+              "odhactive"
+              "pagenumber"
+              "pagesize"
+              "searchfilter"
+              "seed"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Open Data Hub"
+        url: "https://databrowser.opendatahub.com"
+      }
+      description: "This API provides access to a comprehensive dataset of accommodations, including hotels, guesthouses, and similar types of lodging. Users can retrieve information on various accommodation options, facilitating planning and booking for travelers."
+      license: {
+        name: "CC0-1.0"
+        url: "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+      servers: [
+        {
+          description: "Open Data Hub Tourism API Server"
+          url: "https://tourism.opendatahub.com/api"
+        }
+      ]
+      title: "Accommodation API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
