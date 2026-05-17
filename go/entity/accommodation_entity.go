@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/accommodation-sdk/core"
+	"github.com/voxgig-sdk/accommodation-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/accommodation-sdk/go/utility/struct"
 )
 
 type AccommodationEntity struct {

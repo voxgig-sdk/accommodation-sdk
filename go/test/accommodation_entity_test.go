@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/accommodation-sdk"
-	"github.com/voxgig-sdk/accommodation-sdk/core"
+	sdk "github.com/voxgig-sdk/accommodation-sdk/go"
+	"github.com/voxgig-sdk/accommodation-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/accommodation-sdk/go/utility/struct"
 )
 
 func TestAccommodationEntity(t *testing.T) {

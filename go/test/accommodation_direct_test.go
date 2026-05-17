@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/accommodation-sdk"
-	"github.com/voxgig-sdk/accommodation-sdk/core"
+	sdk "github.com/voxgig-sdk/accommodation-sdk/go"
+	"github.com/voxgig-sdk/accommodation-sdk/go/core"
 )
 
 func TestAccommodationDirect(t *testing.T) {

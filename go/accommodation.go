@@ -1,10 +1,10 @@
 package voxgigaccommodationsdk
 
 import (
-	"github.com/voxgig-sdk/accommodation-sdk/core"
-	"github.com/voxgig-sdk/accommodation-sdk/entity"
-	"github.com/voxgig-sdk/accommodation-sdk/feature"
-	_ "github.com/voxgig-sdk/accommodation-sdk/utility"
+	"github.com/voxgig-sdk/accommodation-sdk/go/core"
+	"github.com/voxgig-sdk/accommodation-sdk/go/entity"
+	"github.com/voxgig-sdk/accommodation-sdk/go/feature"
+	_ "github.com/voxgig-sdk/accommodation-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
