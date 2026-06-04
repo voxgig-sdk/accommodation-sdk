@@ -119,7 +119,6 @@ func accommodationBasicSetup(extra map[string]any) *entityTestSetup {
 		"ACCOMMODATION_TEST_ACCOMMODATION_ENTID": idmap,
 		"ACCOMMODATION_TEST_LIVE":      "FALSE",
 		"ACCOMMODATION_TEST_EXPLAIN":   "FALSE",
-		"ACCOMMODATION_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["ACCOMMODATION_TEST_ACCOMMODATION_ENTID"])
@@ -130,7 +129,6 @@ func accommodationBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["ACCOMMODATION_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["ACCOMMODATION_APIKEY"],
 			},
 			extra,
 		})

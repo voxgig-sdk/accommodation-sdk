@@ -21,8 +21,29 @@ main: {
       ]
       title: "Accommodation API"
       version: "1.0.0"
+      tagline: "Browse hotels, guesthouses, and other South Tyrol lodging from the Open Data Hub tourism dataset"
+      homepage: "https://tourism.opendatahub.com/api"
+      docs_url: "https://tourism.api.opendatahub.com/swagger/index.html"
+      license_short: "CC0 1.0 Public Domain Dedication"
+      license_md: `- Data is published under the [Creative Commons CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain Dedication.
+- Licensor is listed as [NOI Techpark](https://noi.bz.it/) (South Tyrol / Alto Adige).
+- Attribution is not legally required, but crediting Open Data Hub / NOI Techpark is encouraged.
+- Check individual records for image copyright fields — media items may carry their own licence metadata.`
+      about_md: `The Accommodation API is part of the [Open Data Hub](https://tourism.opendatahub.com/) tourism dataset, operated by [NOI Techpark](https://noi.bz.it/) in South Tyrol, Italy. It exposes a catalogue of lodging properties — hotels, guesthouses, B&Bs and similar — that can be consulted for travel planning, research, or building booking-adjacent tools.
+
+What you can typically retrieve:
+
+- Lists of accommodation properties with descriptive metadata
+- Location data (GPS coordinates) and contact information
+- Service types, categorisations, and free-text descriptions
+- Image references with their own copyright / licence metadata
+- Revision timestamps for change tracking
+
+The service is served from \`https://tourism.api.opendatahub.com\` and is browsable via a Swagger UI. No authentication is documented for public read access; rate limits and CORS behaviour are not formally published — check the Open Data Hub portal for current operational guidance.`
+      entity_desc: {
+        accommodation: "A lodging property (hotel, guesthouse, B&B, etc.) in the Open Data Hub tourism catalogue, exposed via the `/v1/Accommodation` endpoint."
+      }
+      auth: false
     }
   }
-}
-
 }

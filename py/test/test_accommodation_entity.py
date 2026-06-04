@@ -92,7 +92,6 @@ def _accommodation_basic_setup(extra):
         "ACCOMMODATION_TEST_ACCOMMODATION_ENTID": idmap,
         "ACCOMMODATION_TEST_LIVE": "FALSE",
         "ACCOMMODATION_TEST_EXPLAIN": "FALSE",
-        "ACCOMMODATION_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _accommodation_basic_setup(extra):
     if env.get("ACCOMMODATION_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("ACCOMMODATION_APIKEY"),
             },
             extra or {},
         ])
