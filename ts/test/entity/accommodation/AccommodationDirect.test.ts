@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'ACCOMMODATION_TEST_ACCOMMODATION_ENTID': {},
     'ACCOMMODATION_TEST_LIVE': 'FALSE',
+    'ACCOMMODATION_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.ACCOMMODATION_TEST_LIVE
 
   if (live) {
     const client = new AccommodationSDK({
+      apikey: env.ACCOMMODATION_APIKEY,
     })
 
     let idmap: any = env['ACCOMMODATION_TEST_ACCOMMODATION_ENTID']

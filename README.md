@@ -1,22 +1,8 @@
 # Accommodation SDK
 
-Browse hotels, guesthouses, and other South Tyrol lodging from the Open Data Hub tourism dataset
+Accommodation API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Accommodation API
-
-The Accommodation API is part of the [Open Data Hub](https://tourism.opendatahub.com/) tourism dataset, operated by [NOI Techpark](https://noi.bz.it/) in South Tyrol, Italy. It exposes a catalogue of lodging properties — hotels, guesthouses, B&Bs and similar — that can be consulted for travel planning, research, or building booking-adjacent tools.
-
-What you can typically retrieve:
-
-- Lists of accommodation properties with descriptive metadata
-- Location data (GPS coordinates) and contact information
-- Service types, categorisations, and free-text descriptions
-- Image references with their own copyright / licence metadata
-- Revision timestamps for change tracking
-
-The service is served from `https://tourism.api.opendatahub.com` and is browsable via a Swagger UI. No authentication is documented for public read access; rate limits and CORS behaviour are not formally published — check the Open Data Hub portal for current operational guidance.
 
 ## Try it
 
@@ -50,29 +36,31 @@ gem install accommodation-sdk
 luarocks install accommodation-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { AccommodationSDK } from 'accommodation'
 
-const client = new AccommodationSDK({})
+const client = new AccommodationSDK({
+  apikey: process.env.ACCOMMODATION_APIKEY,
+})
 
 // List all accommodations
 const accommodations = await client.Accommodation().list()
+console.log(accommodations.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -102,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Accommodation** | A lodging property (hotel, guesthouse, B&B, etc.) in the Open Data Hub tourism catalogue, exposed via the `/v1/Accommodation` endpoint. | `/Accommodation` |
+| **Accommodation** |  | `/Accommodation` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from accommodation_sdk import AccommodationSDK
 
-client = AccommodationSDK({})
+client = AccommodationSDK({
+    "apikey": os.environ.get("ACCOMMODATION_APIKEY"),
+})
 
 # List all accommodations
-accommodations, err = client.Accommodation(None).list(None, None)
+accommodations, err = client.Accommodation().list()
+print(accommodations)
 ```
 
 ### PHP
@@ -126,10 +118,13 @@ accommodations, err = client.Accommodation(None).list(None, None)
 <?php
 require_once 'accommodation_sdk.php';
 
-$client = new AccommodationSDK([]);
+$client = new AccommodationSDK([
+    "apikey" => getenv("ACCOMMODATION_APIKEY"),
+]);
 
 // List all accommodations
-[$accommodations, $err] = $client->Accommodation(null)->list(null, null);
+[$accommodations, $err] = $client->Accommodation()->list();
+print_r($accommodations);
 ```
 
 ### Golang
@@ -137,10 +132,13 @@ $client = new AccommodationSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/accommodation-sdk/go"
 
-client := sdk.NewAccommodationSDK(map[string]any{})
+client := sdk.NewAccommodationSDK(map[string]any{
+    "apikey": os.Getenv("ACCOMMODATION_APIKEY"),
+})
 
 // List all accommodations
 accommodations, err := client.Accommodation(nil).List(nil, nil)
+fmt.Println(accommodations)
 ```
 
 ### Ruby
@@ -148,10 +146,13 @@ accommodations, err := client.Accommodation(nil).List(nil, nil)
 ```ruby
 require_relative "Accommodation_sdk"
 
-client = AccommodationSDK.new({})
+client = AccommodationSDK.new({
+  "apikey" => ENV["ACCOMMODATION_APIKEY"],
+})
 
 # List all accommodations
-accommodations, err = client.Accommodation(nil).list(nil, nil)
+accommodations, err = client.Accommodation().list
+puts accommodations
 ```
 
 ### Lua
@@ -159,10 +160,13 @@ accommodations, err = client.Accommodation(nil).list(nil, nil)
 ```lua
 local sdk = require("accommodation_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("ACCOMMODATION_APIKEY"),
+})
 
 -- List all accommodations
-local accommodations, err = client:Accommodation(nil):list(nil, nil)
+local accommodations, err = client:Accommodation():list()
+print(accommodations)
 ```
 
 ## Unit testing in offline mode
@@ -181,25 +185,21 @@ const result = await client.Accommodation().load({ id: 'test01' })
 ### Python
 
 ```python
-client = AccommodationSDK.test(None, None)
-result, err = client.Accommodation(None).load(
-    {"id": "test01"}, None
-)
+client = AccommodationSDK.test()
+result, err = client.Accommodation().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = AccommodationSDK::test(null, null);
-[$result, $err] = $client->Accommodation(null)->load(
-    ["id" => "test01"], null
-);
+$client = AccommodationSDK::test();
+[$result, $err] = $client->Accommodation()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Accommodation(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -208,19 +208,15 @@ result, err := client.Accommodation(nil).Load(
 ### Ruby
 
 ```ruby
-client = AccommodationSDK.test(nil, nil)
-result, err = client.Accommodation(nil).load(
-  { "id" => "test01" }, nil
-)
+client = AccommodationSDK.test
+result, err = client.Accommodation().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Accommodation(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Accommodation():load({ id = "test01" })
 ```
 
 ## How it works
@@ -324,16 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Accommodation API
-
-- Upstream: [https://tourism.opendatahub.com/api](https://tourism.opendatahub.com/api)
-- API docs: [https://tourism.api.opendatahub.com/swagger/index.html](https://tourism.api.opendatahub.com/swagger/index.html)
-
-- Data is published under the [Creative Commons CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain Dedication.
-- Licensor is listed as [NOI Techpark](https://noi.bz.it/) (South Tyrol / Alto Adige).
-- Attribution is not legally required, but crediting Open Data Hub / NOI Techpark is encouraged.
-- Check individual records for image copyright fields — media items may carry their own licence metadata.
 
 ---
 

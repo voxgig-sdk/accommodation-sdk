@@ -62,12 +62,14 @@ def accommodation_direct_setup(mockres)
   env = Runner.env_override({
     "ACCOMMODATION_TEST_ACCOMMODATION_ENTID" => {},
     "ACCOMMODATION_TEST_LIVE" => "FALSE",
+    "ACCOMMODATION_APIKEY" => "NONE",
   })
 
   live = env["ACCOMMODATION_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["ACCOMMODATION_APIKEY"],
     }
     client = AccommodationSDK.new(merged_opts)
     return {
