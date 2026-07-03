@@ -10,7 +10,7 @@ The PHP SDK for the Accommodation API — an entity-oriented client using PHP co
 
 ## Install
 ```bash
-composer require voxgig/accommodation-sdk
+composer require voxgig-sdk/accommodation
 ```
 
 

@@ -10,13 +10,13 @@ The Ruby SDK for the Accommodation API — an entity-oriented client using idiom
 
 ## Install
 ```bash
-gem install accommodation-sdk
+gem install voxgig-sdk-accommodation
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "accommodation-sdk"
+gem "voxgig-sdk-accommodation"
 ```
 
 Then run:

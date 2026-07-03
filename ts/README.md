@@ -10,7 +10,7 @@ The TypeScript SDK for the Accommodation API — a type-safe, entity-oriented cl
 
 ## Install
 ```bash
-npm install accommodation
+npm install @voxgig-sdk/accommodation
 ```
 ## Tutorial: your first API call
 

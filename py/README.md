@@ -10,7 +10,7 @@ The Python SDK for the Accommodation API — an entity-oriented client following
 
 ## Install
 ```bash
-pip install accommodation-sdk
+pip install voxgig-sdk-accommodation
 ```
 
 Or install from source:
