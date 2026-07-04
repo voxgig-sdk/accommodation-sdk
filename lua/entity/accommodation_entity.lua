@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch AccommodationListMatch
+---@param ctrl? table
+---@return Accommodation[]
+---@return string? err
 function AccommodationEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

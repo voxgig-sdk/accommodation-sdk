@@ -92,7 +92,6 @@ function accommodation_basic_setup(extra)
     ["ACCOMMODATION_TEST_ACCOMMODATION_ENTID"] = idmap,
     ["ACCOMMODATION_TEST_LIVE"] = "FALSE",
     ["ACCOMMODATION_TEST_EXPLAIN"] = "FALSE",
-    ["ACCOMMODATION_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -104,7 +103,6 @@ function accommodation_basic_setup(extra)
   if env["ACCOMMODATION_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["ACCOMMODATION_APIKEY"],
       },
       extra or {},
     })

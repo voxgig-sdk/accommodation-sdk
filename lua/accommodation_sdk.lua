@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:accommodation():list() / client:accommodation():load({ id = ... })
+function AccommodationSDK:accommodation(data)
+  local EntityMod = require("entity.accommodation_entity")
+  if data == nil then
+    if self._accommodation == nil then
+      self._accommodation = EntityMod.new(self, nil)
+    end
+    return self._accommodation
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:accommodation() instead.
 function AccommodationSDK:Accommodation(data)
   local EntityMod = require("entity.accommodation_entity")
   return EntityMod.new(self, data)

@@ -50,8 +50,7 @@ class TestAccommodationEntity:
         accommodation_ref01_ent = client.Accommodation(None)
         accommodation_ref01_match = {}
 
-        accommodation_ref01_list_result, err = accommodation_ref01_ent.list(accommodation_ref01_match, None)
-        assert err is None
+        accommodation_ref01_list_result = accommodation_ref01_ent.list(accommodation_ref01_match, None)
         assert isinstance(accommodation_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _accommodation_basic_setup(extra):
         "ACCOMMODATION_TEST_ACCOMMODATION_ENTID": idmap,
         "ACCOMMODATION_TEST_LIVE": "FALSE",
         "ACCOMMODATION_TEST_EXPLAIN": "FALSE",
-        "ACCOMMODATION_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _accommodation_basic_setup(extra):
     if env.get("ACCOMMODATION_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("ACCOMMODATION_APIKEY"),
             },
             extra or {},
         ])

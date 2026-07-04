@@ -45,6 +45,7 @@ class AccommodationEntity
     end
   end
 
+  # @return [Accommodation, Hash] the current Accommodation data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class AccommodationEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Accommodation fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class AccommodationEntity
   
 
   
+  # List Accommodation items matching the given filter.
+  #
+  # @param reqmatch [AccommodationListMatch, Hash, nil] match filter (any subset of Accommodation fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Accommodation>, Array] the matching Accommodation items; raises AccommodationError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

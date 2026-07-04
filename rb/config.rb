@@ -15,9 +15,6 @@ module AccommodationConfig
       },
       "options" => {
         "base" => "https://tourism.opendatahub.com/api",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

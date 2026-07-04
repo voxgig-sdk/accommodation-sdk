@@ -9,12 +9,9 @@ The Lua SDK for the Accommodation API — an entity-oriented client using Lua co
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-accommodation
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/accommodation-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("accommodation_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("ACCOMMODATION_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List accommodations
 
 ```lua
-local result, err = client:Accommodation():list()
+local result, err = client:accommodation():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Accommodation():load({ id = "test01" })
+local result, err = client:accommodation():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -127,7 +122,6 @@ Create a `.env.local` file at the project root:
 
 ```
 ACCOMMODATION_TEST_LIVE=TRUE
-ACCOMMODATION_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -236,7 +229,7 @@ API path: `/Accommodation`
 
 ### Accommodation
 
-Create an instance: `const accommodation = client.Accommodation()`
+Create an instance: `const accommodation = client.accommodation`
 
 #### Operations
 
@@ -262,7 +255,7 @@ Create an instance: `const accommodation = client.Accommodation()`
 #### Example: List
 
 ```ts
-const accommodations = await client.Accommodation().list()
+const accommodations = await client.accommodation.list()
 ```
 
 
@@ -337,11 +330,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local accommodation = client:accommodation()
+accommodation:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- accommodation:data_get() now returns the loaded accommodation data
+-- accommodation:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

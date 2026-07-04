@@ -2,6 +2,8 @@
 
 import { AccommodationEntity } from './entity/AccommodationEntity'
 
+export type * from './AccommodationTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class AccommodationSDK {
 
 
 
+  _accommodation?: AccommodationEntity
+
+  // Idiomatic facade: `client.accommodation.list()` / `client.accommodation.load({ id })`.
+  get accommodation(): AccommodationEntity {
+    return (this._accommodation ??= new AccommodationEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.accommodation` instead. */
   Accommodation(data?: any) {
     const self = this
     return new AccommodationEntity(self,data)

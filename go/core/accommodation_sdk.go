@@ -245,6 +245,9 @@ func (sdk *AccommodationSDK) Direct(fetchargs map[string]any) (map[string]any, e
 }
 
 
+// Accommodation returns a Accommodation entity bound to this client.
+// Idiomatic usage: client.Accommodation(nil).List(nil, nil) or
+// client.Accommodation(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *AccommodationSDK) Accommodation(data map[string]any) AccommodationEntity {
 	return NewAccommodationEntityFunc(sdk, data)
 }

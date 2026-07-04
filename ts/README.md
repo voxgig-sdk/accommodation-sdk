@@ -9,9 +9,12 @@ The TypeScript SDK for the Accommodation API — a type-safe, entity-oriented cl
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/accommodation
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/accommodation-sdk/releases](https://github.com/voxgig-sdk/accommodation-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { AccommodationSDK } from 'accommodation'
+import { AccommodationSDK } from '@voxgig-sdk/accommodation'
 
-const client = new AccommodationSDK({
-  apikey: process.env.ACCOMMODATION_APIKEY,
-})
+const client = new AccommodationSDK()
 ```
 
 ### 2. List accommodations
 
 ```ts
-const result = await client.Accommodation().list()
+const result = await client.accommodation.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = AccommodationSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.accommodation.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new AccommodationSDK({ apikey: '...' })
+const client = new AccommodationSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.accommodation
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new AccommodationSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -136,7 +136,6 @@ Create a `.env.local` file at the project root:
 
 ```
 ACCOMMODATION_TEST_LIVE=TRUE
-ACCOMMODATION_APIKEY=<your-key>
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new AccommodationSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new AccommodationSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -277,7 +274,7 @@ API path: `/Accommodation`
 
 ### Accommodation
 
-Create an instance: `const accommodation = client.Accommodation()`
+Create an instance: `const accommodation = client.accommodation`
 
 #### Operations
 
@@ -303,7 +300,7 @@ Create an instance: `const accommodation = client.Accommodation()`
 #### Example: List
 
 ```ts
-const accommodations = await client.Accommodation().list()
+const accommodations = await client.accommodation.list()
 ```
 
 
@@ -364,7 +361,7 @@ accommodation/
 Import the SDK from the package root:
 
 ```ts
-import { AccommodationSDK } from 'accommodation'
+import { AccommodationSDK } from '@voxgig-sdk/accommodation'
 ```
 
 ### Entity state
@@ -374,11 +371,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const accommodation = client.accommodation
+await accommodation.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// accommodation.data() now returns the loaded accommodation data
+// accommodation.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

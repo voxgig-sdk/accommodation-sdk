@@ -43,8 +43,7 @@ class AccommodationEntityTest < Minitest::Test
     accommodation_ref01_ent = client.Accommodation(nil)
     accommodation_ref01_match = {}
 
-    accommodation_ref01_list_result, err = accommodation_ref01_ent.list(accommodation_ref01_match, nil)
-    assert_nil err
+    accommodation_ref01_list_result = accommodation_ref01_ent.list(accommodation_ref01_match, nil)
     assert accommodation_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def accommodation_basic_setup(extra)
     "ACCOMMODATION_TEST_ACCOMMODATION_ENTID" => idmap,
     "ACCOMMODATION_TEST_LIVE" => "FALSE",
     "ACCOMMODATION_TEST_EXPLAIN" => "FALSE",
-    "ACCOMMODATION_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def accommodation_basic_setup(extra)
   if env["ACCOMMODATION_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["ACCOMMODATION_APIKEY"],
       },
       extra || {},
     ])

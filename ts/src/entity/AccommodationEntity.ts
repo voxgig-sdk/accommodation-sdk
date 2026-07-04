@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Accommodation,
+  AccommodationListMatch,
+} from '../AccommodationTypes'
 
 // TODO: needs Entity superclass
-class AccommodationEntity extends AccommodationEntityBase {
+class AccommodationEntity extends AccommodationEntityBase<Accommodation> {
 
   constructor(client: AccommodationSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class AccommodationEntity extends AccommodationEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: AccommodationListMatch, ctrl?: Control): Promise<Accommodation[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class AccommodationEntity extends AccommodationEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Accommodation[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

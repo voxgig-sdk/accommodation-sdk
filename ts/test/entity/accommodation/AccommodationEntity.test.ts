@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'ACCOMMODATION_TEST_ACCOMMODATION_ENTID': idmap,
     'ACCOMMODATION_TEST_LIVE': 'FALSE',
     'ACCOMMODATION_TEST_EXPLAIN': 'FALSE',
-    'ACCOMMODATION_APIKEY': 'NONE',
   })
 
   idmap = env['ACCOMMODATION_TEST_ACCOMMODATION_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new AccommodationSDK(merge([
       {
-        apikey: env.ACCOMMODATION_APIKEY,
       },
       extra
     ]))

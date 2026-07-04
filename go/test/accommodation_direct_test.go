@@ -93,14 +93,12 @@ func accommodationDirectSetup(mockres any) *accommodationDirectSetupResult {
 	env := envOverride(map[string]any{
 		"ACCOMMODATION_TEST_ACCOMMODATION_ENTID": map[string]any{},
 		"ACCOMMODATION_TEST_LIVE":    "FALSE",
-		"ACCOMMODATION_APIKEY":       "NONE",
 	})
 
 	live := env["ACCOMMODATION_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["ACCOMMODATION_APIKEY"],
 		}
 		client := sdk.NewAccommodationSDK(mergedOpts)
 
