@@ -204,14 +204,7 @@ class AccommodationSDK {
 
 
 
-  _accommodation?: AccommodationEntity
-
-  // Idiomatic facade: `client.accommodation.list()` / `client.accommodation.load({ id })`.
-  get accommodation(): AccommodationEntity {
-    return (this._accommodation ??= new AccommodationEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.accommodation` instead. */
+  // Entity access: `client.Accommodation().list()` / `client.Accommodation().load({ id })`.
   Accommodation(data?: any) {
     const self = this
     return new AccommodationEntity(self,data)

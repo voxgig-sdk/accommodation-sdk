@@ -31,14 +31,16 @@ from accommodation_sdk import AccommodationSDK
 client = AccommodationSDK()
 ```
 
-### 2. List accommodations
+### 2. List accommodation records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.accommodation.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    accommodations = client.Accommodation().list({})
+    for accommodation in accommodations:
+        print(accommodation)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = AccommodationSDK.test()
 
-result = client.accommodation.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+accommodation = client.Accommodation().load({"id": "test01"})
+# accommodation contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -163,7 +166,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `Accommodation` | `(data) -> AccommodationEntity` | Create a Accommodation entity instance. |
+| `Accommodation` | `(data) -> AccommodationEntity` | Create an Accommodation entity instance. |
 
 ### Entity interface
 
@@ -229,7 +232,7 @@ API path: `/Accommodation`
 
 ### Accommodation
 
-Create an instance: `const accommodation = client.accommodation`
+Create an instance: `accommodation = client.Accommodation()`
 
 #### Operations
 
@@ -254,8 +257,8 @@ Create an instance: `const accommodation = client.accommodation`
 
 #### Example: List
 
-```ts
-const accommodations = await client.accommodation.list()
+```python
+accommodations = client.Accommodation().list({})
 ```
 
 
@@ -329,7 +332,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-accommodation = client.accommodation
+accommodation = client.Accommodation()
 accommodation.load({"id": "example_id"})
 
 # accommodation.data_get() now returns the loaded accommodation data

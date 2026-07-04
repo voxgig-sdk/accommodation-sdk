@@ -109,7 +109,7 @@ Alias for `AccommodationSDK.test()`.
 ## AccommodationEntity
 
 ```ts
-const accommodation = client.accommodation
+const accommodation = client.Accommodation()
 ```
 
 ### Fields
@@ -134,7 +134,7 @@ const accommodation = client.accommodation
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.accommodation.list()
+const results = await client.Accommodation().list()
 ```
 
 ### Common Methods

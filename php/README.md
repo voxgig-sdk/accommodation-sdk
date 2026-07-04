@@ -29,18 +29,16 @@ require_once 'accommodation_sdk.php';
 $client = new AccommodationSDK();
 ```
 
-### 2. List accommodations
+### 2. List accommodation records
 
 ```php
 try {
-    $result = $client->accommodation()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Accommodation records — iterate directly.
+    $accommodations = $client->Accommodation()->list();
+    foreach ($accommodations as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = AccommodationSDK::test();
+$client = AccommodationSDK::test([
+    "entity" => ["accommodation" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->accommodation()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$accommodation = $client->Accommodation()->load(["id" => "test01"]);
+print_r($accommodation);
 ```
 
 ### Use a custom fetch function
@@ -171,7 +173,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `Accommodation` | `($data): AccommodationEntity` | Create a Accommodation entity instance. |
+| `Accommodation` | `($data): AccommodationEntity` | Create an Accommodation entity instance. |
 
 ### Entity interface
 
@@ -237,7 +239,7 @@ API path: `/Accommodation`
 
 ### Accommodation
 
-Create an instance: `const accommodation = client.accommodation`
+Create an instance: `$accommodation = $client->Accommodation();`
 
 #### Operations
 
@@ -262,8 +264,9 @@ Create an instance: `const accommodation = client.accommodation`
 
 #### Example: List
 
-```ts
-const accommodations = await client.accommodation.list()
+```php
+// list() returns an array of Accommodation records (throws on error).
+$accommodations = $client->Accommodation()->list();
 ```
 
 
@@ -338,7 +341,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$accommodation = $client->accommodation();
+$accommodation = $client->Accommodation();
 $accommodation->load(["id" => "example_id"]);
 
 // $accommodation->dataGet() now returns the loaded accommodation data

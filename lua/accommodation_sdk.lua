@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:accommodation():list() / client:accommodation():load({ id = ... })
-function AccommodationSDK:accommodation(data)
+-- Idiomatic facade: client:Accommodation():list() / client:Accommodation():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function AccommodationSDK:Accommodation(data)
   local EntityMod = require("entity.accommodation_entity")
   if data == nil then
     if self._accommodation == nil then
@@ -253,12 +254,6 @@ function AccommodationSDK:accommodation(data)
     end
     return self._accommodation
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:accommodation() instead.
-function AccommodationSDK:Accommodation(data)
-  local EntityMod = require("entity.accommodation_entity")
   return EntityMod.new(self, data)
 end
 

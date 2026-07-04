@@ -26,9 +26,11 @@ import { AccommodationSDK } from '@voxgig-sdk/accommodation'
 
 const client = new AccommodationSDK()
 
-// List all accommodations
-const accommodations = await client.accommodation.list()
-console.log(accommodations.data)
+// List all accommodations (returns Accommodation[])
+const accommodations = await client.Accommodation().list()
+for (const accommodation of accommodations) {
+  console.log(accommodation)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,9 +85,10 @@ from accommodation_sdk import AccommodationSDK
 
 client = AccommodationSDK()
 
-# List all accommodations
-accommodations = client.accommodation.list()
-print(accommodations)
+# List all accommodations (returns a list, raises on error)
+accommodations = client.Accommodation().list({})
+for accommodation in accommodations:
+    print(accommodation)
 ```
 
 ### PHP
@@ -96,8 +99,8 @@ require_once 'accommodation_sdk.php';
 
 $client = new AccommodationSDK();
 
-// List all accommodations (throws on error)
-$accommodations = $client->accommodation()->list();
+// List all accommodations (returns an array; throws on error)
+$accommodations = $client->Accommodation()->list();
 print_r($accommodations);
 ```
 
@@ -120,8 +123,8 @@ require_relative "Accommodation_sdk"
 
 client = AccommodationSDK.new
 
-# List all accommodations
-accommodations = client.accommodation.list
+# List all accommodations (returns an Array; raises on error)
+accommodations = client.Accommodation.list
 puts accommodations
 ```
 
@@ -133,7 +136,7 @@ local sdk = require("accommodation_sdk")
 local client = sdk.new()
 
 -- List all accommodations
-local accommodations, err = client:accommodation():list()
+local accommodations, err = client:Accommodation():list()
 print(accommodations)
 ```
 
@@ -146,22 +149,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = AccommodationSDK.test()
-const result = await client.accommodation.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const accommodation = await client.Accommodation().load({ id: 'test01' })
+// accommodation is a bare Accommodation populated with mock data
+console.log(accommodation)
 ```
 
 ### Python
 
 ```python
 client = AccommodationSDK.test()
-result = client.accommodation.load({"id": "test01"})
+accommodation = client.Accommodation().load({"id": "test01"})
+print(accommodation)
 ```
 
 ### PHP
 
 ```php
-$client = AccommodationSDK::test();
-$result = $client->accommodation()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = AccommodationSDK::test([
+    "entity" => ["accommodation" => ["test01" => ["id" => "test01"]]],
+]);
+$accommodation = $client->Accommodation()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -176,15 +184,18 @@ result, err := client.Accommodation(nil).Load(
 ### Ruby
 
 ```ruby
-client = AccommodationSDK.test
-result = client.accommodation.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = AccommodationSDK.test({
+  "entity" => { "accommodation" => { "test01" => { "id" => "test01" } } },
+})
+accommodation = client.Accommodation.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:accommodation():load({ id = "test01" })
+local result, err = client:Accommodation():load({ id = "test01" })
 ```
 
 ## How it works
@@ -232,6 +243,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

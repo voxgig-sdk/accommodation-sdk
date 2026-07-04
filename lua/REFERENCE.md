@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## AccommodationEntity
 
 ```lua
-local accommodation = client:accommodation(nil)
+local accommodation = client:Accommodation(nil)
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ local accommodation = client:accommodation(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:accommodation():list()
+local results, err = client:Accommodation():list()
 ```
 
 ### Common Methods

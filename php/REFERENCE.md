@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## AccommodationEntity
 
 ```php
-$accommodation = $client->accommodation();
+$accommodation = $client->Accommodation();
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ $accommodation = $client->accommodation();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->accommodation()->list([]);
+$results = $client->Accommodation()->list([]);
 ```
 
 ### Common Methods

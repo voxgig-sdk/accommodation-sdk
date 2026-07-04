@@ -28,16 +28,14 @@ require_relative "Accommodation_sdk"
 client = AccommodationSDK.new
 ```
 
-### 2. List accommodations
+### 2. List accommodation records
 
 ```ruby
 begin
-  result = client.accommodation.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Accommodation records — iterate directly.
+  accommodations = client.Accommodation.list
+  accommodations.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = AccommodationSDK.test
+client = AccommodationSDK.test({
+  "entity" => { "accommodation" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.accommodation.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+accommodation = client.Accommodation.load({ "id" => "test01" })
+puts accommodation
 ```
 
 ### Use a custom fetch function
@@ -167,7 +169,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `Accommodation` | `(data) -> AccommodationEntity` | Create a Accommodation entity instance. |
+| `Accommodation` | `(data) -> AccommodationEntity` | Create an Accommodation entity instance. |
 
 ### Entity interface
 
@@ -232,7 +234,7 @@ API path: `/Accommodation`
 
 ### Accommodation
 
-Create an instance: `const accommodation = client.accommodation`
+Create an instance: `accommodation = client.Accommodation`
 
 #### Operations
 
@@ -257,8 +259,9 @@ Create an instance: `const accommodation = client.accommodation`
 
 #### Example: List
 
-```ts
-const accommodations = await client.accommodation.list()
+```ruby
+# list returns an Array of Accommodation records (raises on error).
+accommodations = client.Accommodation.list
 ```
 
 
@@ -333,7 +336,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-accommodation = client.accommodation
+accommodation = client.Accommodation
 accommodation.load({ "id" => "example_id" })
 
 # accommodation.data_get now returns the loaded accommodation data

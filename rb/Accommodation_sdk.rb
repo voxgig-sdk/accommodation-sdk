@@ -208,13 +208,7 @@ class AccommodationSDK
   end
 
 
-  # Idiomatic facade: client.accommodation.list / client.accommodation.load({ "id" => ... })
-  def accommodation
-    require_relative 'entity/accommodation_entity'
-    @accommodation ||= AccommodationEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.accommodation instead.
+  # Canonical facade: client.Accommodation.list / client.Accommodation.load({ "id" => ... })
   def Accommodation(data = nil)
     require_relative 'entity/accommodation_entity'
     AccommodationEntity.new(self, data)

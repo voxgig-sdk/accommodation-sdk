@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## AccommodationEntity
 
 ```python
-accommodation = client.accommodation
+accommodation = client.Accommodation()
 ```
 
 ### Fields
@@ -105,7 +105,9 @@ accommodation = client.accommodation
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.accommodation.list({})
+results = client.Accommodation().list({})
+for accommodation in results:
+    print(accommodation)
 ```
 
 ### Common Methods

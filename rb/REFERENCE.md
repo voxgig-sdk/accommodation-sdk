@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## AccommodationEntity
 
 ```ruby
-accommodation = client.accommodation
+accommodation = client.Accommodation
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ accommodation = client.accommodation
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.accommodation.list(nil)
+results = client.Accommodation.list(nil)
 ```
 
 ### Common Methods

@@ -233,10 +233,10 @@ class AccommodationSDK
 
     private $_accommodation = null;
 
-    // Idiomatic facade: $client->accommodation()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Accommodation() (PHP method
-    // names are case-insensitive).
-    public function accommodation($data = null)
+    // Canonical facade: $client->Accommodation()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->accommodation()
+    // resolves here too.
+    public function Accommodation($data = null)
     {
         require_once __DIR__ . '/entity/accommodation_entity.php';
         if ($data === null) {
