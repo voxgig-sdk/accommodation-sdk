@@ -27,7 +27,7 @@ class Accommodation
     public ?string $shortname = null;
 }
 
-/** Match filter for Accommodation#list (any subset of Accommodation fields). */
+/** Request payload for Accommodation#list. */
 class AccommodationListMatch
 {
     public ?array $acco_detail = null;

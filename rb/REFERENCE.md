@@ -8,7 +8,7 @@ Complete API reference for the Accommodation Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'accommodation_sdk'
+require_relative 'Accommodation_sdk'
 
 client = AccommodationSDK.new(options)
 ```
@@ -93,25 +93,25 @@ accommodation = client.Accommodation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `acco_detail` | ``$OBJECT`` | No |  |
-| `acco_type_id` | ``$STRING`` | No |  |
-| `active` | ``$BOOLEAN`` | No |  |
-| `contact_info` | ``$OBJECT`` | No |  |
-| `feature` | ``$ARRAY`` | No |  |
-| `gps_info` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `last_change` | ``$STRING`` | No |  |
-| `location_info` | ``$OBJECT`` | No |  |
-| `shortname` | ``$STRING`` | No |  |
+| `acco_detail` | `Hash` | No |  |
+| `acco_type_id` | `String` | No |  |
+| `active` | `Boolean` | No |  |
+| `contact_info` | `Hash` | No |  |
+| `feature` | `Array` | No |  |
+| `gps_info` | `Array` | No |  |
+| `id` | `String` | No |  |
+| `last_change` | `String` | No |  |
+| `location_info` | `Hash` | No |  |
+| `shortname` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Accommodation.list(nil)
+results = client.Accommodation.list
 ```
 
 ### Common Methods

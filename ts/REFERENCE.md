@@ -116,16 +116,16 @@ const accommodation = client.Accommodation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `acco_detail` | ``$OBJECT`` | No |  |
-| `acco_type_id` | ``$STRING`` | No |  |
-| `active` | ``$BOOLEAN`` | No |  |
-| `contact_info` | ``$OBJECT`` | No |  |
-| `feature` | ``$ARRAY`` | No |  |
-| `gps_info` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `last_change` | ``$STRING`` | No |  |
-| `location_info` | ``$OBJECT`` | No |  |
-| `shortname` | ``$STRING`` | No |  |
+| `acco_detail` | `Record<string, any>` | No |  |
+| `acco_type_id` | `string` | No |  |
+| `active` | `boolean` | No |  |
+| `contact_info` | `Record<string, any>` | No |  |
+| `feature` | `any[]` | No |  |
+| `gps_info` | `any[]` | No |  |
+| `id` | `string` | No |  |
+| `last_change` | `string` | No |  |
+| `location_info` | `Record<string, any>` | No |  |
+| `shortname` | `string` | No |  |
 
 ### Operations
 

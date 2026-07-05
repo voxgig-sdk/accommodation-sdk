@@ -22,8 +22,7 @@ type Accommodation struct {
 	Shortname *string `json:"shortname,omitempty"`
 }
 
-// AccommodationListMatch mirrors the accommodation fields as an all-optional match
-// filter (Go analog of Partial<Accommodation>).
+// AccommodationListMatch is the typed request payload for Accommodation.ListTyped.
 type AccommodationListMatch struct {
 	AccoDetail *map[string]any `json:"acco_detail,omitempty"`
 	AccoTypeId *string `json:"acco_type_id,omitempty"`

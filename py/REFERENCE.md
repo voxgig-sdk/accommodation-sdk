@@ -87,25 +87,25 @@ accommodation = client.Accommodation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `acco_detail` | ``$OBJECT`` | No |  |
-| `acco_type_id` | ``$STRING`` | No |  |
-| `active` | ``$BOOLEAN`` | No |  |
-| `contact_info` | ``$OBJECT`` | No |  |
-| `feature` | ``$ARRAY`` | No |  |
-| `gps_info` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `last_change` | ``$STRING`` | No |  |
-| `location_info` | ``$OBJECT`` | No |  |
-| `shortname` | ``$STRING`` | No |  |
+| `acco_detail` | `dict` | No |  |
+| `acco_type_id` | `str` | No |  |
+| `active` | `bool` | No |  |
+| `contact_info` | `dict` | No |  |
+| `feature` | `list` | No |  |
+| `gps_info` | `list` | No |  |
+| `id` | `str` | No |  |
+| `last_change` | `str` | No |  |
+| `location_info` | `dict` | No |  |
+| `shortname` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Accommodation().list({})
+results = client.Accommodation().list()
 for accommodation in results:
     print(accommodation)
 ```

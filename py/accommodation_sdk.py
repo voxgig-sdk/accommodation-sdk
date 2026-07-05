@@ -221,7 +221,7 @@ class AccommodationSDK:
 
 
     def Accommodation(self, data=None) -> "AccommodationEntity":
-        """Entity factory: client.Accommodation().list({}) / client.Accommodation().load({"id": ...})."""
+        """Entity factory: client.Accommodation().list() / client.Accommodation().load({"id": ...})."""
         from entity.accommodation_entity import AccommodationEntity
         return AccommodationEntity(self, data)
 

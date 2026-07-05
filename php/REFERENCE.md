@@ -45,11 +45,11 @@ $client = AccommodationSDK::test();
 
 Create a new `AccommodationEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): AccommodationUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,42 +92,42 @@ $accommodation = $client->Accommodation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `acco_detail` | ``$OBJECT`` | No |  |
-| `acco_type_id` | ``$STRING`` | No |  |
-| `active` | ``$BOOLEAN`` | No |  |
-| `contact_info` | ``$OBJECT`` | No |  |
-| `feature` | ``$ARRAY`` | No |  |
-| `gps_info` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `last_change` | ``$STRING`` | No |  |
-| `location_info` | ``$OBJECT`` | No |  |
-| `shortname` | ``$STRING`` | No |  |
+| `acco_detail` | `array` | No |  |
+| `acco_type_id` | `string` | No |  |
+| `active` | `bool` | No |  |
+| `contact_info` | `array` | No |  |
+| `feature` | `array` | No |  |
+| `gps_info` | `array` | No |  |
+| `id` | `string` | No |  |
+| `last_change` | `string` | No |  |
+| `location_info` | `array` | No |  |
+| `shortname` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Accommodation()->list([]);
+$results = $client->Accommodation()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -136,7 +136,7 @@ Set the entity match criteria.
 Create a new `AccommodationEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

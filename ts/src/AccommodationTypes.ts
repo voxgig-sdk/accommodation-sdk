@@ -18,5 +18,16 @@ export interface Accommodation {
   shortname?: string
 }
 
-export type AccommodationListMatch = Partial<Accommodation>
+export interface AccommodationListMatch {
+  acco_detail?: Record<string, any>
+  acco_type_id?: string
+  active?: boolean
+  contact_info?: Record<string, any>
+  feature?: any[]
+  gps_info?: any[]
+  id?: string
+  last_change?: string
+  location_info?: Record<string, any>
+  shortname?: string
+}
 

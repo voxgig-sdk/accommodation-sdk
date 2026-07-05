@@ -53,7 +53,7 @@ Accommodation = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Accommodation#list (any subset of Accommodation fields).
+# Request payload for Accommodation#list.
 #
 # @!attribute [rw] acco_detail
 #   @return [Hash, nil]
