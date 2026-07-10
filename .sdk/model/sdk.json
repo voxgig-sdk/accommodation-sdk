@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -342,14 +339,17 @@
           "name": "CC0-1.0",
           "url": "https://creativecommons.org/publicdomain/zero/1.0/"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Open Data Hub Tourism API Server",
             "url": "https://tourism.opendatahub.com/api"
           }
         ],
+        "summary": "This API provides access to a comprehensive dataset of accommodations, including hotels, guesthouses, and similar types of lodging.",
         "title": "Accommodation API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://tourism.opendatahub.com"
       },
       "option": {},
       "target": {
@@ -402,6 +402,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -452,6 +455,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

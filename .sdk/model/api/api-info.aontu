@@ -20,9 +20,9 @@ main: {
           url: "https://tourism.opendatahub.com/api"
         }
       ]
+      summary: "This API provides access to a comprehensive dataset of accommodations, including hotels, guesthouses, and similar types of lodging."
       title: "Accommodation API"
       version: "1.0.0"
+      website: "https://tourism.opendatahub.com"
     }
   }
-}
-

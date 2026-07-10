@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 accommodation := client.Accommodation(nil)
+fmt.Println(accommodation.GetName()) // "accommodation"
 ```
 
 ### Fields
@@ -116,6 +117,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Accommodation(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
