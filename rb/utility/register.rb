@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ AccommodationUtility.registrar = ->(u) {
   u.prepare_params = AccommodationUtilities::PrepareParams
   u.prepare_path = AccommodationUtilities::PreparePath
   u.prepare_query = AccommodationUtilities::PrepareQuery
+  u.graphql_body = AccommodationUtilities::GraphqlBody
+  u.graphql_errors = AccommodationUtilities::GraphqlErrors
   u.result_basic = AccommodationUtilities::ResultBasic
   u.result_body = AccommodationUtilities::ResultBody
   u.result_headers = AccommodationUtilities::ResultHeaders

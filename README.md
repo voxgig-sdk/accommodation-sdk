@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = AccommodationSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = AccommodationSDK.test({
+  entity: {
+    accommodation: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const accommodations = await client.Accommodation().list()
-// accommodations is an array of bare Accommodation records populated with mock data
+// accommodations is an array of Accommodation entities, populated with mock data
+// — call accommodations[0].data() for the record itself
 console.log(accommodations)
 ```
 
@@ -110,7 +119,7 @@ import { AccommodationSDK } from '@voxgig-sdk/accommodation'
 
 const client = new AccommodationSDK()
 
-// List all accommodations (returns Accommodation[])
+// List all accommodations (returns AccommodationEntity[] — .data() for the record)
 const accommodations = await client.Accommodation().list()
 for (const accommodation of accommodations) {
   console.log(accommodation)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://databrowser.opendatahub.com](https://databrowser.opendatahub.com)
 

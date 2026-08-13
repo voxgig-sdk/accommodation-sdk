@@ -93,16 +93,16 @@ accommodation = client.Accommodation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `acco_detail` | `Hash` | No |  |
-| `acco_type_id` | `String` | No |  |
-| `active` | `Boolean` | No |  |
-| `contact_info` | `Hash` | No |  |
-| `feature` | `Array` | No |  |
-| `gps_info` | `Array` | No |  |
-| `id` | `String` | No |  |
-| `last_change` | `String` | No |  |
-| `location_info` | `Hash` | No |  |
-| `shortname` | `String` | No |  |
+| `AccoDetail` | `Hash` | No |  |
+| `AccoTypeId` | `String` | No |  |
+| `Active` | `Boolean` | No |  |
+| `ContactInfos` | `Hash` | No |  |
+| `Features` | `Array` | No |  |
+| `GpsInfo` | `Array` | No |  |
+| `Id` | `String` | No |  |
+| `LastChange` | `String` | No |  |
+| `LocationInfo` | `Hash` | No |  |
+| `Shortname` | `String` | No |  |
 
 ### Operations
 

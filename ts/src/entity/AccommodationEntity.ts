@@ -37,7 +37,7 @@ class AccommodationEntity extends AccommodationEntityBase<Accommodation> {
 
 
 
-  async list(this: any, reqmatch?: AccommodationListMatch, ctrl?: Control): Promise<Accommodation[]> {
+  async list(this: any, reqmatch?: AccommodationListMatch, ctrl?: Control): Promise<AccommodationEntity[]> {
 
     const utility = this._utility
 

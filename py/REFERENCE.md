@@ -87,16 +87,16 @@ accommodation = client.Accommodation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `acco_detail` | `dict` | No |  |
-| `acco_type_id` | `str` | No |  |
-| `active` | `bool` | No |  |
-| `contact_info` | `dict` | No |  |
-| `feature` | `list` | No |  |
-| `gps_info` | `list` | No |  |
-| `id` | `str` | No |  |
-| `last_change` | `str` | No |  |
-| `location_info` | `dict` | No |  |
-| `shortname` | `str` | No |  |
+| `AccoDetail` | `dict` | No |  |
+| `AccoTypeId` | `str` | No |  |
+| `Active` | `bool` | No |  |
+| `ContactInfos` | `dict` | No |  |
+| `Features` | `list` | No |  |
+| `GpsInfo` | `list` | No |  |
+| `Id` | `str` | No |  |
+| `LastChange` | `str` | No |  |
+| `LocationInfo` | `dict` | No |  |
+| `Shortname` | `str` | No |  |
 
 ### Operations
 

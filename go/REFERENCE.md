@@ -98,16 +98,16 @@ fmt.Println(accommodation.GetName()) // "accommodation"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `acco_detail` | `map[string]any` | No |  |
-| `acco_type_id` | `string` | No |  |
-| `active` | `bool` | No |  |
-| `contact_info` | `map[string]any` | No |  |
-| `feature` | `[]any` | No |  |
-| `gps_info` | `[]any` | No |  |
-| `id` | `string` | No |  |
-| `last_change` | `string` | No |  |
-| `location_info` | `map[string]any` | No |  |
-| `shortname` | `string` | No |  |
+| `AccoDetail` | `map[string]any` | No |  |
+| `AccoTypeId` | `string` | No |  |
+| `Active` | `bool` | No |  |
+| `ContactInfos` | `map[string]any` | No |  |
+| `Features` | `[]any` | No |  |
+| `GpsInfo` | `[]any` | No |  |
+| `Id` | `string` | No |  |
+| `LastChange` | `string` | No |  |
+| `LocationInfo` | `map[string]any` | No |  |
+| `Shortname` | `string` | No |  |
 
 ### Operations
 

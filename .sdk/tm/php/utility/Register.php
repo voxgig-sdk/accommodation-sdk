@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ AccommodationUtility::setRegistrar(function (AccommodationUtility $u): void {
     $u->prepare_params = [AccommodationPrepareParams::class, 'call'];
     $u->prepare_path = [AccommodationPreparePath::class, 'call'];
     $u->prepare_query = [AccommodationPrepareQuery::class, 'call'];
+    $u->graphql_body = [AccommodationGraphql::class, 'body'];
+    $u->graphql_errors = [AccommodationGraphql::class, 'errors'];
     $u->result_basic = [AccommodationResultBasic::class, 'call'];
     $u->result_body = [AccommodationResultBody::class, 'call'];
     $u->result_headers = [AccommodationResultHeaders::class, 'call'];

@@ -10,91 +10,91 @@
 
 # Accommodation entity data model.
 #
-# @!attribute [rw] acco_detail
+# @!attribute [rw] AccoDetail
 #   @return [Hash, nil]
 #
-# @!attribute [rw] acco_type_id
+# @!attribute [rw] AccoTypeId
 #   @return [String, nil]
 #
-# @!attribute [rw] active
+# @!attribute [rw] Active
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] contact_info
+# @!attribute [rw] ContactInfos
 #   @return [Hash, nil]
 #
-# @!attribute [rw] feature
+# @!attribute [rw] Features
 #   @return [Array, nil]
 #
-# @!attribute [rw] gps_info
+# @!attribute [rw] GpsInfo
 #   @return [Array, nil]
 #
-# @!attribute [rw] id
+# @!attribute [rw] Id
 #   @return [String, nil]
 #
-# @!attribute [rw] last_change
+# @!attribute [rw] LastChange
 #   @return [String, nil]
 #
-# @!attribute [rw] location_info
+# @!attribute [rw] LocationInfo
 #   @return [Hash, nil]
 #
-# @!attribute [rw] shortname
+# @!attribute [rw] Shortname
 #   @return [String, nil]
 Accommodation = Struct.new(
-  :acco_detail,
-  :acco_type_id,
-  :active,
-  :contact_info,
-  :feature,
-  :gps_info,
-  :id,
-  :last_change,
-  :location_info,
-  :shortname,
+  :AccoDetail,
+  :AccoTypeId,
+  :Active,
+  :ContactInfos,
+  :Features,
+  :GpsInfo,
+  :Id,
+  :LastChange,
+  :LocationInfo,
+  :Shortname,
   keyword_init: true
 )
 
 # Request payload for Accommodation#list.
 #
-# @!attribute [rw] acco_detail
+# @!attribute [rw] AccoDetail
 #   @return [Hash, nil]
 #
-# @!attribute [rw] acco_type_id
+# @!attribute [rw] AccoTypeId
 #   @return [String, nil]
 #
-# @!attribute [rw] active
+# @!attribute [rw] Active
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] contact_info
+# @!attribute [rw] ContactInfos
 #   @return [Hash, nil]
 #
-# @!attribute [rw] feature
+# @!attribute [rw] Features
 #   @return [Array, nil]
 #
-# @!attribute [rw] gps_info
+# @!attribute [rw] GpsInfo
 #   @return [Array, nil]
 #
-# @!attribute [rw] id
+# @!attribute [rw] Id
 #   @return [String, nil]
 #
-# @!attribute [rw] last_change
+# @!attribute [rw] LastChange
 #   @return [String, nil]
 #
-# @!attribute [rw] location_info
+# @!attribute [rw] LocationInfo
 #   @return [Hash, nil]
 #
-# @!attribute [rw] shortname
+# @!attribute [rw] Shortname
 #   @return [String, nil]
 AccommodationListMatch = Struct.new(
-  :acco_detail,
-  :acco_type_id,
-  :active,
-  :contact_info,
-  :feature,
-  :gps_info,
-  :id,
-  :last_change,
-  :location_info,
-  :shortname,
+  :AccoDetail,
+  :AccoTypeId,
+  :Active,
+  :ContactInfos,
+  :Features,
+  :GpsInfo,
+  :Id,
+  :LastChange,
+  :LocationInfo,
+  :Shortname,
   keyword_init: true
 )
 

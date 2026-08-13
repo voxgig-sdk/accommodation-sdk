@@ -35,7 +35,9 @@ const client = new AccommodationSDK()
 
 ### 2. List accommodation records
 
-`list()` resolves to an array of Accommodation objects — iterate it directly:
+`list()` resolves to an array of Accommodation ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const accommodations = await client.Accommodation().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = AccommodationSDK.test()
 
 const accommodation = await client.Accommodation().list()
-// accommodation is a bare entity populated with mock response data
+// accommodation is the entity, populated with mock response data
+// — call accommodation.data() for the record itself
 console.log(accommodation)
 ```
 
@@ -143,7 +146,7 @@ await entity.list()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data.id)
+console.log(data)
 ```
 
 ### Add custom middleware
@@ -284,16 +287,16 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `acco_detail` |  |
-| `acco_type_id` |  |
-| `active` |  |
-| `contact_info` |  |
-| `feature` |  |
-| `gps_info` |  |
-| `id` |  |
-| `last_change` |  |
-| `location_info` |  |
-| `shortname` |  |
+| `AccoDetail` |  |
+| `AccoTypeId` |  |
+| `Active` |  |
+| `ContactInfos` |  |
+| `Features` |  |
+| `GpsInfo` |  |
+| `Id` |  |
+| `LastChange` |  |
+| `LocationInfo` |  |
+| `Shortname` |  |
 
 Operations: list.
 
@@ -318,16 +321,16 @@ Create an instance: `const accommodation = client.Accommodation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `acco_detail` | `Record<string, any>` |  |
-| `acco_type_id` | `string` |  |
-| `active` | `boolean` |  |
-| `contact_info` | `Record<string, any>` |  |
-| `feature` | `any[]` |  |
-| `gps_info` | `any[]` |  |
-| `id` | `string` |  |
-| `last_change` | `string` |  |
-| `location_info` | `Record<string, any>` |  |
-| `shortname` | `string` |  |
+| `AccoDetail` | `Record<string, any>` |  |
+| `AccoTypeId` | `string` |  |
+| `Active` | `boolean` |  |
+| `ContactInfos` | `Record<string, any>` |  |
+| `Features` | `any[]` |  |
+| `GpsInfo` | `any[]` |  |
+| `Id` | `string` |  |
+| `LastChange` | `string` |  |
+| `LocationInfo` | `Record<string, any>` |  |
+| `Shortname` | `string` |  |
 
 #### Example: List
 

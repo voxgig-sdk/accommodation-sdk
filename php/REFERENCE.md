@@ -92,16 +92,16 @@ $accommodation = $client->Accommodation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `acco_detail` | `array` | No |  |
-| `acco_type_id` | `string` | No |  |
-| `active` | `bool` | No |  |
-| `contact_info` | `array` | No |  |
-| `feature` | `array` | No |  |
-| `gps_info` | `array` | No |  |
-| `id` | `string` | No |  |
-| `last_change` | `string` | No |  |
-| `location_info` | `array` | No |  |
-| `shortname` | `string` | No |  |
+| `AccoDetail` | `array` | No |  |
+| `AccoTypeId` | `string` | No |  |
+| `Active` | `bool` | No |  |
+| `ContactInfos` | `array` | No |  |
+| `Features` | `array` | No |  |
+| `GpsInfo` | `array` | No |  |
+| `Id` | `string` | No |  |
+| `LastChange` | `string` | No |  |
+| `LocationInfo` | `array` | No |  |
+| `Shortname` | `string` | No |  |
 
 ### Operations
 

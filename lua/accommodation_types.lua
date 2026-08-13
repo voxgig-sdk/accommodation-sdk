@@ -7,28 +7,28 @@
 -- edit by hand.
 
 ---@class Accommodation
----@field acco_detail? table
----@field acco_type_id? string
----@field active? boolean
----@field contact_info? table
----@field feature? table
----@field gps_info? table
----@field id? string
----@field last_change? string
----@field location_info? table
----@field shortname? string
+---@field AccoDetail? table
+---@field AccoTypeId? string
+---@field Active? boolean
+---@field ContactInfos? table
+---@field Features? table
+---@field GpsInfo? table
+---@field Id? string
+---@field LastChange? string
+---@field LocationInfo? table
+---@field Shortname? string
 
 ---@class AccommodationListMatch
----@field acco_detail? table
----@field acco_type_id? string
----@field active? boolean
----@field contact_info? table
----@field feature? table
----@field gps_info? table
----@field id? string
----@field last_change? string
----@field location_info? table
----@field shortname? string
+---@field AccoDetail? table
+---@field AccoTypeId? string
+---@field Active? boolean
+---@field ContactInfos? table
+---@field Features? table
+---@field GpsInfo? table
+---@field Id? string
+---@field LastChange? string
+---@field LocationInfo? table
+---@field Shortname? string
 
 local M = {}
 

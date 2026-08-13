@@ -6,61 +6,56 @@ main: kit: entity: accommodation: {
 
   fields: [
     {
-      name: "acco_detail"
+      name: "AccoDetail"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "acco_type_id"
+      name: "AccoTypeId"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "active"
+      name: "Active"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "contact_info"
+      name: "ContactInfos"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "feature"
+      name: "Features"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "gps_info"
+      name: "GpsInfo"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "id"
+      name: "Id"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "last_change"
+      name: "LastChange"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "location_info"
+      name: "LocationInfo"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "shortname"
+      name: "Shortname"
       req: false
       type: "`$STRING`"
     }
   ]
-
-  id: {
-    field: "id"
-    name: "id"
-  }
 
   name: "accommodation"
   op: {
@@ -157,7 +152,7 @@ main: kit: entity: accommodation: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.Items`"
           }
         }
       ]

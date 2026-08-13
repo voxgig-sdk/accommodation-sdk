@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Accommodation SDK exists test
 
 import pytest
 from accommodation_sdk import AccommodationSDK

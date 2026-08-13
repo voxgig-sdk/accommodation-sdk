@@ -260,16 +260,16 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"acco_detail"` |  |
-| `"acco_type_id"` |  |
-| `"active"` |  |
-| `"contact_info"` |  |
-| `"feature"` |  |
-| `"gps_info"` |  |
-| `"id"` |  |
-| `"last_change"` |  |
-| `"location_info"` |  |
-| `"shortname"` |  |
+| `"AccoDetail"` |  |
+| `"AccoTypeId"` |  |
+| `"Active"` |  |
+| `"ContactInfos"` |  |
+| `"Features"` |  |
+| `"GpsInfo"` |  |
+| `"Id"` |  |
+| `"LastChange"` |  |
+| `"LocationInfo"` |  |
+| `"Shortname"` |  |
 
 Operations: List.
 
@@ -294,16 +294,16 @@ Create an instance: `accommodation := client.Accommodation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `acco_detail` | `map[string]any` |  |
-| `acco_type_id` | `string` |  |
-| `active` | `bool` |  |
-| `contact_info` | `map[string]any` |  |
-| `feature` | `[]any` |  |
-| `gps_info` | `[]any` |  |
-| `id` | `string` |  |
-| `last_change` | `string` |  |
-| `location_info` | `map[string]any` |  |
-| `shortname` | `string` |  |
+| `AccoDetail` | `map[string]any` |  |
+| `AccoTypeId` | `string` |  |
+| `Active` | `bool` |  |
+| `ContactInfos` | `map[string]any` |  |
+| `Features` | `[]any` |  |
+| `GpsInfo` | `[]any` |  |
+| `Id` | `string` |  |
+| `LastChange` | `string` |  |
+| `LocationInfo` | `map[string]any` |  |
+| `Shortname` | `string` |  |
 
 #### Example: List
 

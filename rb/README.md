@@ -37,7 +37,7 @@ begin
   # list returns an Array of Accommodation records — iterate directly.
   accommodations = client.Accommodation.list
   accommodations.each do |item|
-    puts "#{item["id"]} #{item["acco_detail"]}"
+    puts "#{item["AccoDetail"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = AccommodationSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 accommodation = client.Accommodation.list()
 puts accommodation
 ```
@@ -236,16 +237,16 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `acco_detail` |  |
-| `acco_type_id` |  |
-| `active` |  |
-| `contact_info` |  |
-| `feature` |  |
-| `gps_info` |  |
-| `id` |  |
-| `last_change` |  |
-| `location_info` |  |
-| `shortname` |  |
+| `AccoDetail` |  |
+| `AccoTypeId` |  |
+| `Active` |  |
+| `ContactInfos` |  |
+| `Features` |  |
+| `GpsInfo` |  |
+| `Id` |  |
+| `LastChange` |  |
+| `LocationInfo` |  |
+| `Shortname` |  |
 
 Operations: List.
 
@@ -270,16 +271,16 @@ Create an instance: `accommodation = client.Accommodation`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `acco_detail` | `Hash` |  |
-| `acco_type_id` | `String` |  |
-| `active` | `Boolean` |  |
-| `contact_info` | `Hash` |  |
-| `feature` | `Array` |  |
-| `gps_info` | `Array` |  |
-| `id` | `String` |  |
-| `last_change` | `String` |  |
-| `location_info` | `Hash` |  |
-| `shortname` | `String` |  |
+| `AccoDetail` | `Hash` |  |
+| `AccoTypeId` | `String` |  |
+| `Active` | `Boolean` |  |
+| `ContactInfos` | `Hash` |  |
+| `Features` | `Array` |  |
+| `GpsInfo` | `Array` |  |
+| `Id` | `String` |  |
+| `LastChange` | `String` |  |
+| `LocationInfo` | `Hash` |  |
+| `Shortname` | `String` |  |
 
 #### Example: List
 

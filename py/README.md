@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = AccommodationSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 accommodation = client.Accommodation().list()
 # accommodation contains the mock response record
 ```
@@ -220,7 +221,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -242,16 +243,16 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `acco_detail` |  |
-| `acco_type_id` |  |
-| `active` |  |
-| `contact_info` |  |
-| `feature` |  |
-| `gps_info` |  |
-| `id` |  |
-| `last_change` |  |
-| `location_info` |  |
-| `shortname` |  |
+| `AccoDetail` |  |
+| `AccoTypeId` |  |
+| `Active` |  |
+| `ContactInfos` |  |
+| `Features` |  |
+| `GpsInfo` |  |
+| `Id` |  |
+| `LastChange` |  |
+| `LocationInfo` |  |
+| `Shortname` |  |
 
 Operations: List.
 
@@ -276,16 +277,16 @@ Create an instance: `accommodation = client.Accommodation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `acco_detail` | `dict` |  |
-| `acco_type_id` | `str` |  |
-| `active` | `bool` |  |
-| `contact_info` | `dict` |  |
-| `feature` | `list` |  |
-| `gps_info` | `list` |  |
-| `id` | `str` |  |
-| `last_change` | `str` |  |
-| `location_info` | `dict` |  |
-| `shortname` | `str` |  |
+| `AccoDetail` | `dict` |  |
+| `AccoTypeId` | `str` |  |
+| `Active` | `bool` |  |
+| `ContactInfos` | `dict` |  |
+| `Features` | `list` |  |
+| `GpsInfo` | `list` |  |
+| `Id` | `str` |  |
+| `LastChange` | `str` |  |
+| `LocationInfo` | `dict` |  |
+| `Shortname` | `str` |  |
 
 #### Example: List
 

@@ -15,30 +15,30 @@ declare(strict_types=1);
 /** Accommodation entity data model. */
 class Accommodation
 {
-    public ?array $acco_detail = null;
-    public ?string $acco_type_id = null;
-    public ?bool $active = null;
-    public ?array $contact_info = null;
-    public ?array $feature = null;
-    public ?array $gps_info = null;
-    public ?string $id = null;
-    public ?string $last_change = null;
-    public ?array $location_info = null;
-    public ?string $shortname = null;
+    public ?array $AccoDetail = null;
+    public ?string $AccoTypeId = null;
+    public ?bool $Active = null;
+    public ?array $ContactInfos = null;
+    public ?array $Features = null;
+    public ?array $GpsInfo = null;
+    public ?string $Id = null;
+    public ?string $LastChange = null;
+    public ?array $LocationInfo = null;
+    public ?string $Shortname = null;
 }
 
 /** Request payload for Accommodation#list. */
 class AccommodationListMatch
 {
-    public ?array $acco_detail = null;
-    public ?string $acco_type_id = null;
-    public ?bool $active = null;
-    public ?array $contact_info = null;
-    public ?array $feature = null;
-    public ?array $gps_info = null;
-    public ?string $id = null;
-    public ?string $last_change = null;
-    public ?array $location_info = null;
-    public ?string $shortname = null;
+    public ?array $AccoDetail = null;
+    public ?string $AccoTypeId = null;
+    public ?bool $Active = null;
+    public ?array $ContactInfos = null;
+    public ?array $Features = null;
+    public ?array $GpsInfo = null;
+    public ?string $Id = null;
+    public ?string $LastChange = null;
+    public ?array $LocationInfo = null;
+    public ?string $Shortname = null;
 }
 

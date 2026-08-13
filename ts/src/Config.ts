@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Accommodation',
   }
 
 
@@ -56,70 +56,70 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "acco_detail",
+          "name": "AccoDetail",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "acco_type_id",
+          "name": "AccoTypeId",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "active",
+          "name": "Active",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "contact_info",
+          "name": "ContactInfos",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "feature",
+          "name": "Features",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "gps_info",
+          "name": "GpsInfo",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "id",
+          "name": "Id",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "last_change",
+          "name": "LastChange",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "location_info",
+          "name": "LocationInfo",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "shortname",
+          "name": "Shortname",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -211,6 +211,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/Accommodation",
               "parts": [
@@ -231,7 +232,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.Items`"
               },
               "index$": 0
             }

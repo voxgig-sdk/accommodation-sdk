@@ -38,7 +38,7 @@ try {
     // list() returns an array of Accommodation records — iterate directly.
     $accommodations = $client->Accommodation()->list();
     foreach ($accommodations as $item) {
-        echo $item["id"] . " " . $item["acco_detail"] . "\n";
+        echo $item["AccoDetail"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = AccommodationSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $accommodation = $client->Accommodation()->list();
 print_r($accommodation);
 ```
@@ -224,7 +225,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -246,16 +247,16 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `acco_detail` |  |
-| `acco_type_id` |  |
-| `active` |  |
-| `contact_info` |  |
-| `feature` |  |
-| `gps_info` |  |
-| `id` |  |
-| `last_change` |  |
-| `location_info` |  |
-| `shortname` |  |
+| `AccoDetail` |  |
+| `AccoTypeId` |  |
+| `Active` |  |
+| `ContactInfos` |  |
+| `Features` |  |
+| `GpsInfo` |  |
+| `Id` |  |
+| `LastChange` |  |
+| `LocationInfo` |  |
+| `Shortname` |  |
 
 Operations: List.
 
@@ -280,16 +281,16 @@ Create an instance: `$accommodation = $client->Accommodation();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `acco_detail` | `array` |  |
-| `acco_type_id` | `string` |  |
-| `active` | `bool` |  |
-| `contact_info` | `array` |  |
-| `feature` | `array` |  |
-| `gps_info` | `array` |  |
-| `id` | `string` |  |
-| `last_change` | `string` |  |
-| `location_info` | `array` |  |
-| `shortname` | `string` |  |
+| `AccoDetail` | `array` |  |
+| `AccoTypeId` | `string` |  |
+| `Active` | `bool` |  |
+| `ContactInfos` | `array` |  |
+| `Features` | `array` |  |
+| `GpsInfo` | `array` |  |
+| `Id` | `string` |  |
+| `LastChange` | `string` |  |
+| `LocationInfo` | `array` |  |
+| `Shortname` | `string` |  |
 
 #### Example: List
 

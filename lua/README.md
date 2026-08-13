@@ -43,7 +43,7 @@ local accommodations, err = client:Accommodation():list()
 if err then error(err) end
 
 for _, item in ipairs(accommodations) do
-  print(item["id"], item["acco_type_id"])
+  print(item["AccoTypeId"])
 end
 ```
 
@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local accommodation, err = client:Accommodation():load()
+    local accommodation, err = client:Accommodation():list()
     if err then error(err) end
-    -- accommodation is the loaded record
+    -- accommodation is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -231,16 +231,16 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `acco_detail` |  |
-| `acco_type_id` |  |
-| `active` |  |
-| `contact_info` |  |
-| `feature` |  |
-| `gps_info` |  |
-| `id` |  |
-| `last_change` |  |
-| `location_info` |  |
-| `shortname` |  |
+| `AccoDetail` |  |
+| `AccoTypeId` |  |
+| `Active` |  |
+| `ContactInfos` |  |
+| `Features` |  |
+| `GpsInfo` |  |
+| `Id` |  |
+| `LastChange` |  |
+| `LocationInfo` |  |
+| `Shortname` |  |
 
 Operations: List.
 
@@ -265,16 +265,16 @@ Create an instance: `local accommodation = client:Accommodation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `acco_detail` | `table` |  |
-| `acco_type_id` | `string` |  |
-| `active` | `boolean` |  |
-| `contact_info` | `table` |  |
-| `feature` | `table` |  |
-| `gps_info` | `table` |  |
-| `id` | `string` |  |
-| `last_change` | `string` |  |
-| `location_info` | `table` |  |
-| `shortname` | `string` |  |
+| `AccoDetail` | `table` |  |
+| `AccoTypeId` | `string` |  |
+| `Active` | `boolean` |  |
+| `ContactInfos` | `table` |  |
+| `Features` | `table` |  |
+| `GpsInfo` | `table` |  |
+| `Id` | `string` |  |
+| `LastChange` | `string` |  |
+| `LocationInfo` | `table` |  |
+| `Shortname` | `string` |  |
 
 #### Example: List
 

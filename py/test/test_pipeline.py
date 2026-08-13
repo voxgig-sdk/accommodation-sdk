@@ -16,11 +16,11 @@
 import pytest
 
 from accommodation_sdk import AccommodationSDK
-from core.error import AccommodationError
-from core.result import AccommodationResult
-from core.response import AccommodationResponse
-from core.spec import AccommodationSpec
-from feature.base_feature import AccommodationBaseFeature
+from accommodation_sdk.core.error import AccommodationError
+from accommodation_sdk.core.result import AccommodationResult
+from accommodation_sdk.core.response import AccommodationResponse
+from accommodation_sdk.core.spec import AccommodationSpec
+from accommodation_sdk.feature.base_feature import AccommodationBaseFeature
 
 
 def _client():

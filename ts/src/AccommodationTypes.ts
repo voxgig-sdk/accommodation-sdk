@@ -6,28 +6,28 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Accommodation {
-  acco_detail?: Record<string, any>
-  acco_type_id?: string
-  active?: boolean
-  contact_info?: Record<string, any>
-  feature?: any[]
-  gps_info?: any[]
-  id?: string
-  last_change?: string
-  location_info?: Record<string, any>
-  shortname?: string
+  AccoDetail?: Record<string, any>
+  AccoTypeId?: string
+  Active?: boolean
+  ContactInfos?: Record<string, any>
+  Features?: any[]
+  GpsInfo?: any[]
+  Id?: string
+  LastChange?: string
+  LocationInfo?: Record<string, any>
+  Shortname?: string
 }
 
 export interface AccommodationListMatch {
-  acco_detail?: Record<string, any>
-  acco_type_id?: string
-  active?: boolean
-  contact_info?: Record<string, any>
-  feature?: any[]
-  gps_info?: any[]
-  id?: string
-  last_change?: string
-  location_info?: Record<string, any>
-  shortname?: string
+  AccoDetail?: Record<string, any>
+  AccoTypeId?: string
+  Active?: boolean
+  ContactInfos?: Record<string, any>
+  Features?: any[]
+  GpsInfo?: any[]
+  Id?: string
+  LastChange?: string
+  LocationInfo?: Record<string, any>
+  Shortname?: string
 }
 

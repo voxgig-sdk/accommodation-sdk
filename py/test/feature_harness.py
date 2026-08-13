@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import AccommodationControl
-from core.error import AccommodationError
-from core.result import AccommodationResult
-from core.spec import AccommodationSpec
+from accommodation_sdk.config import make_config
+from accommodation_sdk.features import _make_feature
+from accommodation_sdk.core.control import AccommodationControl
+from accommodation_sdk.core.error import AccommodationError
+from accommodation_sdk.core.result import AccommodationResult
+from accommodation_sdk.core.spec import AccommodationSpec
 
 
 # True when this SDK was generated with the named feature.

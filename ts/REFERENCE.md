@@ -116,16 +116,16 @@ const accommodation = client.Accommodation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `acco_detail` | `Record<string, any>` | No |  |
-| `acco_type_id` | `string` | No |  |
-| `active` | `boolean` | No |  |
-| `contact_info` | `Record<string, any>` | No |  |
-| `feature` | `any[]` | No |  |
-| `gps_info` | `any[]` | No |  |
-| `id` | `string` | No |  |
-| `last_change` | `string` | No |  |
-| `location_info` | `Record<string, any>` | No |  |
-| `shortname` | `string` | No |  |
+| `AccoDetail` | `Record<string, any>` | No |  |
+| `AccoTypeId` | `string` | No |  |
+| `Active` | `boolean` | No |  |
+| `ContactInfos` | `Record<string, any>` | No |  |
+| `Features` | `any[]` | No |  |
+| `GpsInfo` | `any[]` | No |  |
+| `Id` | `string` | No |  |
+| `LastChange` | `string` | No |  |
+| `LocationInfo` | `Record<string, any>` | No |  |
+| `Shortname` | `string` | No |  |
 
 ### Operations
 
