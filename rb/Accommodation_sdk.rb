@@ -28,7 +28,7 @@ class AccommodationSDK
     utility = AccommodationUtility.new
     @_utility = utility
 
-    config = AccommodationConfig.make_config
+    config = AccommodationConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

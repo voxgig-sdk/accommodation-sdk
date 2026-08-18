@@ -15,7 +15,7 @@ require_relative "../Accommodation_sdk"
 module AccommodationFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = AccommodationConfig.make_config["feature"]
+    f = AccommodationConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

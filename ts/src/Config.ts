@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://tourism.opendatahub.com/api',
+    base: "https://tourism.opendatahub.com/api",
 
     headers: {
       "content-type": "application/json"
@@ -55,74 +55,44 @@ class Config {
     "accommodation": {
       "fields": [
         {
-          "active": true,
           "name": "AccoDetail",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 0
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "AccoTypeId",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "Active",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 2
+          "type": "`$BOOLEAN`"
         },
         {
-          "active": true,
           "name": "ContactInfos",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 3
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "Features",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 4
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "GpsInfo",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 5
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "Id",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 6
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "LastChange",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 7
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "LocationInfo",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 8
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "Shortname",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 9
+          "type": "`$STRING`"
         }
       ],
       "name": "accommodation",
@@ -132,81 +102,62 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "active",
                     "orig": "active",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "field",
                     "orig": "field",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "langfilter",
                     "orig": "langfilter",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locfilter",
                     "orig": "locfilter",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "odhactive",
                     "orig": "odhactive",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "pagenumber",
                     "orig": "pagenumber",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "example": 10,
                     "kind": "query",
                     "name": "pagesize",
                     "orig": "pagesize",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "searchfilter",
                     "orig": "searchfilter",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "seed",
                     "orig": "seed",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -233,11 +184,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.Items`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {

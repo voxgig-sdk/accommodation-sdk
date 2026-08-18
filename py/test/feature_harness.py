@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from accommodation_sdk.config import make_config
+from accommodation_sdk.config import shared_config
 from accommodation_sdk.features import _make_feature
 from accommodation_sdk.core.control import AccommodationControl
 from accommodation_sdk.core.error import AccommodationError
@@ -24,7 +24,7 @@ from accommodation_sdk.core.spec import AccommodationSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

@@ -40,7 +40,7 @@ class AccommodationSDK
         $utility = new AccommodationUtility();
         $this->_utility = $utility;
 
-        $config = AccommodationConfig::make_config();
+        $config = AccommodationConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
