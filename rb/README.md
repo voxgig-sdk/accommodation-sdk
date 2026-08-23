@@ -237,16 +237,16 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `AccoDetail` |  |
-| `AccoTypeId` |  |
-| `Active` |  |
-| `ContactInfos` |  |
-| `Features` |  |
-| `GpsInfo` |  |
-| `Id` |  |
-| `LastChange` |  |
-| `LocationInfo` |  |
-| `Shortname` |  |
+| `AccoDetail` | Detailed information about the accommodation |
+| `AccoTypeId` | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | Whether the accommodation is active |
+| `ContactInfos` | Contact information |
+| `Features` | List of features and amenities |
+| `GpsInfo` | GPS coordinates |
+| `Id` | Unique identifier for the accommodation |
+| `LastChange` | Last modification timestamp |
+| `LocationInfo` | Geographic location information |
+| `Shortname` | Short name of the accommodation |
 
 Operations: List.
 
@@ -271,16 +271,16 @@ Create an instance: `accommodation = client.Accommodation`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `AccoDetail` | `Hash` |  |
-| `AccoTypeId` | `String` |  |
-| `Active` | `Boolean` |  |
-| `ContactInfos` | `Hash` |  |
-| `Features` | `Array` |  |
-| `GpsInfo` | `Array` |  |
-| `Id` | `String` |  |
-| `LastChange` | `String` |  |
-| `LocationInfo` | `Hash` |  |
-| `Shortname` | `String` |  |
+| `AccoDetail` | `Hash` | Detailed information about the accommodation |
+| `AccoTypeId` | `String` | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | `Boolean` | Whether the accommodation is active |
+| `ContactInfos` | `Hash` | Contact information |
+| `Features` | `Array` | List of features and amenities |
+| `GpsInfo` | `Array` | GPS coordinates |
+| `Id` | `String` | Unique identifier for the accommodation |
+| `LastChange` | `String` | Last modification timestamp |
+| `LocationInfo` | `Hash` | Geographic location information |
+| `Shortname` | `String` | Short name of the accommodation |
 
 #### Example: List
 

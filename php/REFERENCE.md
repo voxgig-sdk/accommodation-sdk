@@ -92,16 +92,16 @@ $accommodation = $client->Accommodation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `AccoDetail` | `array` | No |  |
-| `AccoTypeId` | `string` | No |  |
-| `Active` | `bool` | No |  |
-| `ContactInfos` | `array` | No |  |
-| `Features` | `array` | No |  |
-| `GpsInfo` | `array` | No |  |
-| `Id` | `string` | No |  |
-| `LastChange` | `string` | No |  |
-| `LocationInfo` | `array` | No |  |
-| `Shortname` | `string` | No |  |
+| `AccoDetail` | `array` | No | Detailed information about the accommodation |
+| `AccoTypeId` | `string` | No | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | `bool` | No | Whether the accommodation is active |
+| `ContactInfos` | `array` | No | Contact information |
+| `Features` | `array` | No | List of features and amenities |
+| `GpsInfo` | `array` | No | GPS coordinates |
+| `Id` | `string` | No | Unique identifier for the accommodation |
+| `LastChange` | `string` | No | Last modification timestamp |
+| `LocationInfo` | `array` | No | Geographic location information |
+| `Shortname` | `string` | No | Short name of the accommodation |
 
 ### Operations
 

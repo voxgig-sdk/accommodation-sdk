@@ -36,60 +36,70 @@
               "active": true,
               "name": "AccoDetail",
               "req": false,
+              "short": "Detailed information about the accommodation",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "AccoTypeId",
               "req": false,
+              "short": "Type identifier (e.g., hotel, guesthouse)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "Active",
               "req": false,
+              "short": "Whether the accommodation is active",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "ContactInfos",
               "req": false,
+              "short": "Contact information",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "Features",
               "req": false,
+              "short": "List of features and amenities",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "GpsInfo",
               "req": false,
+              "short": "GPS coordinates",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "Id",
               "req": false,
+              "short": "Unique identifier for the accommodation",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "LastChange",
               "req": false,
+              "short": "Last modification timestamp",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "LocationInfo",
               "req": false,
+              "short": "Geographic location information",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "Shortname",
               "req": false,
+              "short": "Short name of the accommodation",
               "type": "`$STRING`"
             }
           ],

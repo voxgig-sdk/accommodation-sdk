@@ -247,16 +247,16 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `AccoDetail` |  |
-| `AccoTypeId` |  |
-| `Active` |  |
-| `ContactInfos` |  |
-| `Features` |  |
-| `GpsInfo` |  |
-| `Id` |  |
-| `LastChange` |  |
-| `LocationInfo` |  |
-| `Shortname` |  |
+| `AccoDetail` | Detailed information about the accommodation |
+| `AccoTypeId` | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | Whether the accommodation is active |
+| `ContactInfos` | Contact information |
+| `Features` | List of features and amenities |
+| `GpsInfo` | GPS coordinates |
+| `Id` | Unique identifier for the accommodation |
+| `LastChange` | Last modification timestamp |
+| `LocationInfo` | Geographic location information |
+| `Shortname` | Short name of the accommodation |
 
 Operations: List.
 
@@ -281,16 +281,16 @@ Create an instance: `$accommodation = $client->Accommodation();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `AccoDetail` | `array` |  |
-| `AccoTypeId` | `string` |  |
-| `Active` | `bool` |  |
-| `ContactInfos` | `array` |  |
-| `Features` | `array` |  |
-| `GpsInfo` | `array` |  |
-| `Id` | `string` |  |
-| `LastChange` | `string` |  |
-| `LocationInfo` | `array` |  |
-| `Shortname` | `string` |  |
+| `AccoDetail` | `array` | Detailed information about the accommodation |
+| `AccoTypeId` | `string` | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | `bool` | Whether the accommodation is active |
+| `ContactInfos` | `array` | Contact information |
+| `Features` | `array` | List of features and amenities |
+| `GpsInfo` | `array` | GPS coordinates |
+| `Id` | `string` | Unique identifier for the accommodation |
+| `LastChange` | `string` | Last modification timestamp |
+| `LocationInfo` | `array` | Geographic location information |
+| `Shortname` | `string` | Short name of the accommodation |
 
 #### Example: List
 

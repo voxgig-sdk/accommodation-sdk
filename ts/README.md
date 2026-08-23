@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -287,16 +287,16 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `AccoDetail` |  |
-| `AccoTypeId` |  |
-| `Active` |  |
-| `ContactInfos` |  |
-| `Features` |  |
-| `GpsInfo` |  |
-| `Id` |  |
-| `LastChange` |  |
-| `LocationInfo` |  |
-| `Shortname` |  |
+| `AccoDetail` | Detailed information about the accommodation |
+| `AccoTypeId` | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | Whether the accommodation is active |
+| `ContactInfos` | Contact information |
+| `Features` | List of features and amenities |
+| `GpsInfo` | GPS coordinates |
+| `Id` | Unique identifier for the accommodation |
+| `LastChange` | Last modification timestamp |
+| `LocationInfo` | Geographic location information |
+| `Shortname` | Short name of the accommodation |
 
 Operations: list.
 
@@ -321,16 +321,16 @@ Create an instance: `const accommodation = client.Accommodation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `AccoDetail` | `Record<string, any>` |  |
-| `AccoTypeId` | `string` |  |
-| `Active` | `boolean` |  |
-| `ContactInfos` | `Record<string, any>` |  |
-| `Features` | `any[]` |  |
-| `GpsInfo` | `any[]` |  |
-| `Id` | `string` |  |
-| `LastChange` | `string` |  |
-| `LocationInfo` | `Record<string, any>` |  |
-| `Shortname` | `string` |  |
+| `AccoDetail` | `Record<string, any>` | Detailed information about the accommodation |
+| `AccoTypeId` | `string` | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | `boolean` | Whether the accommodation is active |
+| `ContactInfos` | `Record<string, any>` | Contact information |
+| `Features` | `any[]` | List of features and amenities |
+| `GpsInfo` | `any[]` | GPS coordinates |
+| `Id` | `string` | Unique identifier for the accommodation |
+| `LastChange` | `string` | Last modification timestamp |
+| `LocationInfo` | `Record<string, any>` | Geographic location information |
+| `Shortname` | `string` | Short name of the accommodation |
 
 #### Example: List
 

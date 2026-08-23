@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Accommodation",
+			"slug": "accommodation",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,42 +36,52 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "AccoDetail",
+						"short": "Detailed information about the accommodation",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "AccoTypeId",
+						"short": "Type identifier (e.g., hotel, guesthouse)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "Active",
+						"short": "Whether the accommodation is active",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "ContactInfos",
+						"short": "Contact information",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "Features",
+						"short": "List of features and amenities",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "GpsInfo",
+						"short": "GPS coordinates",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "Id",
+						"short": "Unique identifier for the accommodation",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "LastChange",
+						"short": "Last modification timestamp",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "LocationInfo",
+						"short": "Geographic location information",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "Shortname",
+						"short": "Short name of the accommodation",
 						"type": "`$STRING`",
 					},
 				},

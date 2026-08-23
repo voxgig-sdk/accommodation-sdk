@@ -8,51 +8,61 @@ main: kit: entity: accommodation: {
     {
       name: "AccoDetail"
       req: false
+      short: "Detailed information about the accommodation"
       type: "`$OBJECT`"
     }
     {
       name: "AccoTypeId"
       req: false
+      short: "Type identifier (e.g., hotel, guesthouse)"
       type: "`$STRING`"
     }
     {
       name: "Active"
       req: false
+      short: "Whether the accommodation is active"
       type: "`$BOOLEAN`"
     }
     {
       name: "ContactInfos"
       req: false
+      short: "Contact information"
       type: "`$OBJECT`"
     }
     {
       name: "Features"
       req: false
+      short: "List of features and amenities"
       type: "`$ARRAY`"
     }
     {
       name: "GpsInfo"
       req: false
+      short: "GPS coordinates"
       type: "`$ARRAY`"
     }
     {
       name: "Id"
       req: false
+      short: "Unique identifier for the accommodation"
       type: "`$STRING`"
     }
     {
       name: "LastChange"
       req: false
+      short: "Last modification timestamp"
       type: "`$STRING`"
     }
     {
       name: "LocationInfo"
       req: false
+      short: "Geographic location information"
       type: "`$OBJECT`"
     }
     {
       name: "Shortname"
       req: false
+      short: "Short name of the accommodation"
       type: "`$STRING`"
     }
   ]

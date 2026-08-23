@@ -87,16 +87,16 @@ accommodation = client.Accommodation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `AccoDetail` | `dict` | No |  |
-| `AccoTypeId` | `str` | No |  |
-| `Active` | `bool` | No |  |
-| `ContactInfos` | `dict` | No |  |
-| `Features` | `list` | No |  |
-| `GpsInfo` | `list` | No |  |
-| `Id` | `str` | No |  |
-| `LastChange` | `str` | No |  |
-| `LocationInfo` | `dict` | No |  |
-| `Shortname` | `str` | No |  |
+| `AccoDetail` | `dict` | No | Detailed information about the accommodation |
+| `AccoTypeId` | `str` | No | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | `bool` | No | Whether the accommodation is active |
+| `ContactInfos` | `dict` | No | Contact information |
+| `Features` | `list` | No | List of features and amenities |
+| `GpsInfo` | `list` | No | GPS coordinates |
+| `Id` | `str` | No | Unique identifier for the accommodation |
+| `LastChange` | `str` | No | Last modification timestamp |
+| `LocationInfo` | `dict` | No | Geographic location information |
+| `Shortname` | `str` | No | Short name of the accommodation |
 
 ### Operations
 

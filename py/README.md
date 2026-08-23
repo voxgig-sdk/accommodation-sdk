@@ -243,16 +243,16 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `AccoDetail` |  |
-| `AccoTypeId` |  |
-| `Active` |  |
-| `ContactInfos` |  |
-| `Features` |  |
-| `GpsInfo` |  |
-| `Id` |  |
-| `LastChange` |  |
-| `LocationInfo` |  |
-| `Shortname` |  |
+| `AccoDetail` | Detailed information about the accommodation |
+| `AccoTypeId` | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | Whether the accommodation is active |
+| `ContactInfos` | Contact information |
+| `Features` | List of features and amenities |
+| `GpsInfo` | GPS coordinates |
+| `Id` | Unique identifier for the accommodation |
+| `LastChange` | Last modification timestamp |
+| `LocationInfo` | Geographic location information |
+| `Shortname` | Short name of the accommodation |
 
 Operations: List.
 
@@ -277,16 +277,16 @@ Create an instance: `accommodation = client.Accommodation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `AccoDetail` | `dict` |  |
-| `AccoTypeId` | `str` |  |
-| `Active` | `bool` |  |
-| `ContactInfos` | `dict` |  |
-| `Features` | `list` |  |
-| `GpsInfo` | `list` |  |
-| `Id` | `str` |  |
-| `LastChange` | `str` |  |
-| `LocationInfo` | `dict` |  |
-| `Shortname` | `str` |  |
+| `AccoDetail` | `dict` | Detailed information about the accommodation |
+| `AccoTypeId` | `str` | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | `bool` | Whether the accommodation is active |
+| `ContactInfos` | `dict` | Contact information |
+| `Features` | `list` | List of features and amenities |
+| `GpsInfo` | `list` | GPS coordinates |
+| `Id` | `str` | Unique identifier for the accommodation |
+| `LastChange` | `str` | Last modification timestamp |
+| `LocationInfo` | `dict` | Geographic location information |
+| `Shortname` | `str` | Short name of the accommodation |
 
 #### Example: List
 

@@ -116,16 +116,16 @@ const accommodation = client.Accommodation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `AccoDetail` | `Record<string, any>` | No |  |
-| `AccoTypeId` | `string` | No |  |
-| `Active` | `boolean` | No |  |
-| `ContactInfos` | `Record<string, any>` | No |  |
-| `Features` | `any[]` | No |  |
-| `GpsInfo` | `any[]` | No |  |
-| `Id` | `string` | No |  |
-| `LastChange` | `string` | No |  |
-| `LocationInfo` | `Record<string, any>` | No |  |
-| `Shortname` | `string` | No |  |
+| `AccoDetail` | `Record<string, any>` | No | Detailed information about the accommodation |
+| `AccoTypeId` | `string` | No | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | `boolean` | No | Whether the accommodation is active |
+| `ContactInfos` | `Record<string, any>` | No | Contact information |
+| `Features` | `any[]` | No | List of features and amenities |
+| `GpsInfo` | `any[]` | No | GPS coordinates |
+| `Id` | `string` | No | Unique identifier for the accommodation |
+| `LastChange` | `string` | No | Last modification timestamp |
+| `LocationInfo` | `Record<string, any>` | No | Geographic location information |
+| `Shortname` | `string` | No | Short name of the accommodation |
 
 ### Operations
 

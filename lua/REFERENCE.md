@@ -90,16 +90,16 @@ local accommodation = client:Accommodation(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `AccoDetail` | `table` | No |  |
-| `AccoTypeId` | `string` | No |  |
-| `Active` | `boolean` | No |  |
-| `ContactInfos` | `table` | No |  |
-| `Features` | `table` | No |  |
-| `GpsInfo` | `table` | No |  |
-| `Id` | `string` | No |  |
-| `LastChange` | `string` | No |  |
-| `LocationInfo` | `table` | No |  |
-| `Shortname` | `string` | No |  |
+| `AccoDetail` | `table` | No | Detailed information about the accommodation |
+| `AccoTypeId` | `string` | No | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | `boolean` | No | Whether the accommodation is active |
+| `ContactInfos` | `table` | No | Contact information |
+| `Features` | `table` | No | List of features and amenities |
+| `GpsInfo` | `table` | No | GPS coordinates |
+| `Id` | `string` | No | Unique identifier for the accommodation |
+| `LastChange` | `string` | No | Last modification timestamp |
+| `LocationInfo` | `table` | No | Geographic location information |
+| `Shortname` | `string` | No | Short name of the accommodation |
 
 ### Operations
 

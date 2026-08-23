@@ -6,7 +6,7 @@ The Golang SDK for the Accommodation API — an entity-oriented client using sta
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Accommodation(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,16 +260,16 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"AccoDetail"` |  |
-| `"AccoTypeId"` |  |
-| `"Active"` |  |
-| `"ContactInfos"` |  |
-| `"Features"` |  |
-| `"GpsInfo"` |  |
-| `"Id"` |  |
-| `"LastChange"` |  |
-| `"LocationInfo"` |  |
-| `"Shortname"` |  |
+| `"AccoDetail"` | Detailed information about the accommodation |
+| `"AccoTypeId"` | Type identifier (e.g., hotel, guesthouse) |
+| `"Active"` | Whether the accommodation is active |
+| `"ContactInfos"` | Contact information |
+| `"Features"` | List of features and amenities |
+| `"GpsInfo"` | GPS coordinates |
+| `"Id"` | Unique identifier for the accommodation |
+| `"LastChange"` | Last modification timestamp |
+| `"LocationInfo"` | Geographic location information |
+| `"Shortname"` | Short name of the accommodation |
 
 Operations: List.
 
@@ -294,16 +294,16 @@ Create an instance: `accommodation := client.Accommodation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `AccoDetail` | `map[string]any` |  |
-| `AccoTypeId` | `string` |  |
-| `Active` | `bool` |  |
-| `ContactInfos` | `map[string]any` |  |
-| `Features` | `[]any` |  |
-| `GpsInfo` | `[]any` |  |
-| `Id` | `string` |  |
-| `LastChange` | `string` |  |
-| `LocationInfo` | `map[string]any` |  |
-| `Shortname` | `string` |  |
+| `AccoDetail` | `map[string]any` | Detailed information about the accommodation |
+| `AccoTypeId` | `string` | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | `bool` | Whether the accommodation is active |
+| `ContactInfos` | `map[string]any` | Contact information |
+| `Features` | `[]any` | List of features and amenities |
+| `GpsInfo` | `[]any` | GPS coordinates |
+| `Id` | `string` | Unique identifier for the accommodation |
+| `LastChange` | `string` | Last modification timestamp |
+| `LocationInfo` | `map[string]any` | Geographic location information |
+| `Shortname` | `string` | Short name of the accommodation |
 
 #### Example: List
 

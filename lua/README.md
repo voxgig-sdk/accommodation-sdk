@@ -231,16 +231,16 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `AccoDetail` |  |
-| `AccoTypeId` |  |
-| `Active` |  |
-| `ContactInfos` |  |
-| `Features` |  |
-| `GpsInfo` |  |
-| `Id` |  |
-| `LastChange` |  |
-| `LocationInfo` |  |
-| `Shortname` |  |
+| `AccoDetail` | Detailed information about the accommodation |
+| `AccoTypeId` | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | Whether the accommodation is active |
+| `ContactInfos` | Contact information |
+| `Features` | List of features and amenities |
+| `GpsInfo` | GPS coordinates |
+| `Id` | Unique identifier for the accommodation |
+| `LastChange` | Last modification timestamp |
+| `LocationInfo` | Geographic location information |
+| `Shortname` | Short name of the accommodation |
 
 Operations: List.
 
@@ -265,16 +265,16 @@ Create an instance: `local accommodation = client:Accommodation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `AccoDetail` | `table` |  |
-| `AccoTypeId` | `string` |  |
-| `Active` | `boolean` |  |
-| `ContactInfos` | `table` |  |
-| `Features` | `table` |  |
-| `GpsInfo` | `table` |  |
-| `Id` | `string` |  |
-| `LastChange` | `string` |  |
-| `LocationInfo` | `table` |  |
-| `Shortname` | `string` |  |
+| `AccoDetail` | `table` | Detailed information about the accommodation |
+| `AccoTypeId` | `string` | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | `boolean` | Whether the accommodation is active |
+| `ContactInfos` | `table` | Contact information |
+| `Features` | `table` | List of features and amenities |
+| `GpsInfo` | `table` | GPS coordinates |
+| `Id` | `string` | Unique identifier for the accommodation |
+| `LastChange` | `string` | Last modification timestamp |
+| `LocationInfo` | `table` | Geographic location information |
+| `Shortname` | `string` | Short name of the accommodation |
 
 #### Example: List
 

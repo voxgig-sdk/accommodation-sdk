@@ -98,16 +98,16 @@ fmt.Println(accommodation.GetName()) // "accommodation"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `AccoDetail` | `map[string]any` | No |  |
-| `AccoTypeId` | `string` | No |  |
-| `Active` | `bool` | No |  |
-| `ContactInfos` | `map[string]any` | No |  |
-| `Features` | `[]any` | No |  |
-| `GpsInfo` | `[]any` | No |  |
-| `Id` | `string` | No |  |
-| `LastChange` | `string` | No |  |
-| `LocationInfo` | `map[string]any` | No |  |
-| `Shortname` | `string` | No |  |
+| `AccoDetail` | `map[string]any` | No | Detailed information about the accommodation |
+| `AccoTypeId` | `string` | No | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | `bool` | No | Whether the accommodation is active |
+| `ContactInfos` | `map[string]any` | No | Contact information |
+| `Features` | `[]any` | No | List of features and amenities |
+| `GpsInfo` | `[]any` | No | GPS coordinates |
+| `Id` | `string` | No | Unique identifier for the accommodation |
+| `LastChange` | `string` | No | Last modification timestamp |
+| `LocationInfo` | `map[string]any` | No | Geographic location information |
+| `Shortname` | `string` | No | Short name of the accommodation |
 
 ### Operations
 

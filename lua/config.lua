@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "Accommodation",
+      slug = "accommodation",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -29,42 +32,52 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "AccoDetail",
+            ["short"] = "Detailed information about the accommodation",
             ["type"] = "`$OBJECT`",
           },
           {
             ["name"] = "AccoTypeId",
+            ["short"] = "Type identifier (e.g., hotel, guesthouse)",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "Active",
+            ["short"] = "Whether the accommodation is active",
             ["type"] = "`$BOOLEAN`",
           },
           {
             ["name"] = "ContactInfos",
+            ["short"] = "Contact information",
             ["type"] = "`$OBJECT`",
           },
           {
             ["name"] = "Features",
+            ["short"] = "List of features and amenities",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "GpsInfo",
+            ["short"] = "GPS coordinates",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "Id",
+            ["short"] = "Unique identifier for the accommodation",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "LastChange",
+            ["short"] = "Last modification timestamp",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "LocationInfo",
+            ["short"] = "Geographic location information",
             ["type"] = "`$OBJECT`",
           },
           {
             ["name"] = "Shortname",
+            ["short"] = "Short name of the accommodation",
             ["type"] = "`$STRING`",
           },
         },

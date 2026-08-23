@@ -93,16 +93,16 @@ accommodation = client.Accommodation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `AccoDetail` | `Hash` | No |  |
-| `AccoTypeId` | `String` | No |  |
-| `Active` | `Boolean` | No |  |
-| `ContactInfos` | `Hash` | No |  |
-| `Features` | `Array` | No |  |
-| `GpsInfo` | `Array` | No |  |
-| `Id` | `String` | No |  |
-| `LastChange` | `String` | No |  |
-| `LocationInfo` | `Hash` | No |  |
-| `Shortname` | `String` | No |  |
+| `AccoDetail` | `Hash` | No | Detailed information about the accommodation |
+| `AccoTypeId` | `String` | No | Type identifier (e.g., hotel, guesthouse) |
+| `Active` | `Boolean` | No | Whether the accommodation is active |
+| `ContactInfos` | `Hash` | No | Contact information |
+| `Features` | `Array` | No | List of features and amenities |
+| `GpsInfo` | `Array` | No | GPS coordinates |
+| `Id` | `String` | No | Unique identifier for the accommodation |
+| `LastChange` | `String` | No | Last modification timestamp |
+| `LocationInfo` | `Hash` | No | Geographic location information |
+| `Shortname` | `String` | No | Short name of the accommodation |
 
 ### Operations
 
