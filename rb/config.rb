@@ -28,6 +28,7 @@ module AccommodationConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
