@@ -19,16 +19,15 @@
 ---@field Shortname? string
 
 ---@class AccommodationListMatch
----@field AccoDetail? table
----@field AccoTypeId? string
----@field Active? boolean
----@field ContactInfos? table
----@field Features? table
----@field GpsInfo? table
----@field Id? string
----@field LastChange? string
----@field LocationInfo? table
----@field Shortname? string
+---@field active? boolean
+---@field field? string
+---@field langfilter? string
+---@field locfilter? string
+---@field odhactive? boolean
+---@field pagenumber? number
+---@field pagesize? number
+---@field searchfilter? string
+---@field seed? string
 
 local M = {}
 

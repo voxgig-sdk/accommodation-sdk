@@ -28,16 +28,15 @@ type Accommodation struct {
 
 // AccommodationListMatch is the typed request payload for Accommodation.ListTyped.
 type AccommodationListMatch struct {
-	AccoDetail *map[string]any `json:"AccoDetail,omitempty"`
-	AccoTypeId *string `json:"AccoTypeId,omitempty"`
-	Active *bool `json:"Active,omitempty"`
-	ContactInfos *map[string]any `json:"ContactInfos,omitempty"`
-	Features *[]any `json:"Features,omitempty"`
-	GpsInfo *[]any `json:"GpsInfo,omitempty"`
-	Id *string `json:"Id,omitempty"`
-	LastChange *string `json:"LastChange,omitempty"`
-	LocationInfo *map[string]any `json:"LocationInfo,omitempty"`
-	Shortname *string `json:"Shortname,omitempty"`
+	Active *bool `json:"active,omitempty"`
+	Field *string `json:"field,omitempty"`
+	Langfilter *string `json:"langfilter,omitempty"`
+	Locfilter *string `json:"locfilter,omitempty"`
+	Odhactive *bool `json:"odhactive,omitempty"`
+	Pagenumber *int `json:"pagenumber,omitempty"`
+	Pagesize *int `json:"pagesize,omitempty"`
+	Searchfilter *string `json:"searchfilter,omitempty"`
+	Seed *string `json:"seed,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

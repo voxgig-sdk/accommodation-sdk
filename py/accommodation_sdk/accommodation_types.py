@@ -30,13 +30,12 @@ class Accommodation(TypedDict, total=False):
 
 
 class AccommodationListMatch(TypedDict, total=False):
-    AccoDetail: dict
-    AccoTypeId: str
-    Active: bool
-    ContactInfos: dict
-    Features: list
-    GpsInfo: list
-    Id: str
-    LastChange: str
-    LocationInfo: dict
-    Shortname: str
+    active: bool
+    field: str
+    langfilter: str
+    locfilter: str
+    odhactive: bool
+    pagenumber: int
+    pagesize: int
+    searchfilter: str
+    seed: str

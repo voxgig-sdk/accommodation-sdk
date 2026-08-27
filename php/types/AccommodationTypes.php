@@ -30,15 +30,14 @@ class Accommodation
 /** Request payload for Accommodation#list. */
 class AccommodationListMatch
 {
-    public ?array $AccoDetail = null;
-    public ?string $AccoTypeId = null;
-    public ?bool $Active = null;
-    public ?array $ContactInfos = null;
-    public ?array $Features = null;
-    public ?array $GpsInfo = null;
-    public ?string $Id = null;
-    public ?string $LastChange = null;
-    public ?array $LocationInfo = null;
-    public ?string $Shortname = null;
+    public ?bool $active = null;
+    public ?string $field = null;
+    public ?string $langfilter = null;
+    public ?string $locfilter = null;
+    public ?bool $odhactive = null;
+    public ?int $pagenumber = null;
+    public ?int $pagesize = null;
+    public ?string $searchfilter = null;
+    public ?string $seed = null;
 }
 

@@ -55,46 +55,42 @@ Accommodation = Struct.new(
 
 # Request payload for Accommodation#list.
 #
-# @!attribute [rw] AccoDetail
-#   @return [Hash, nil]
-#
-# @!attribute [rw] AccoTypeId
-#   @return [String, nil]
-#
-# @!attribute [rw] Active
+# @!attribute [rw] active
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] ContactInfos
-#   @return [Hash, nil]
-#
-# @!attribute [rw] Features
-#   @return [Array, nil]
-#
-# @!attribute [rw] GpsInfo
-#   @return [Array, nil]
-#
-# @!attribute [rw] Id
+# @!attribute [rw] field
 #   @return [String, nil]
 #
-# @!attribute [rw] LastChange
+# @!attribute [rw] langfilter
 #   @return [String, nil]
 #
-# @!attribute [rw] LocationInfo
-#   @return [Hash, nil]
+# @!attribute [rw] locfilter
+#   @return [String, nil]
 #
-# @!attribute [rw] Shortname
+# @!attribute [rw] odhactive
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] pagenumber
+#   @return [Integer, nil]
+#
+# @!attribute [rw] pagesize
+#   @return [Integer, nil]
+#
+# @!attribute [rw] searchfilter
+#   @return [String, nil]
+#
+# @!attribute [rw] seed
 #   @return [String, nil]
 AccommodationListMatch = Struct.new(
-  :AccoDetail,
-  :AccoTypeId,
-  :Active,
-  :ContactInfos,
-  :Features,
-  :GpsInfo,
-  :Id,
-  :LastChange,
-  :LocationInfo,
-  :Shortname,
+  :active,
+  :field,
+  :langfilter,
+  :locfilter,
+  :odhactive,
+  :pagenumber,
+  :pagesize,
+  :searchfilter,
+  :seed,
   keyword_init: true
 )
 
