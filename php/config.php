@@ -93,6 +93,7 @@ class AccommodationConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'LastChange',
               'short' => 'Last modification timestamp',
               'type' => '`$STRING`',
@@ -178,8 +179,10 @@ class AccommodationConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/Accommodation',
-                  'parts' => [
-                    'Accommodation',
+                  'segments' => [
+                    [
+                      'lit' => 'Accommodation',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -197,6 +200,9 @@ class AccommodationConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.Items`',
+                  ],
+                  'parts' => [
+                    'Accommodation',
                   ],
                 ],
               ],

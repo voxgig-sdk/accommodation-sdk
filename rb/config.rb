@@ -79,6 +79,7 @@ module AccommodationConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "date-time",
               "name" => "LastChange",
               "short" => "Last modification timestamp",
               "type" => "`$STRING`",
@@ -164,8 +165,10 @@ module AccommodationConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/Accommodation",
-                  "parts" => [
-                    "Accommodation",
+                  "segments" => [
+                    {
+                      "lit" => "Accommodation",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -184,6 +187,9 @@ module AccommodationConfig
                     "req" => "`reqdata`",
                     "res" => "`body.Items`",
                   },
+                  "parts" => [
+                    "Accommodation",
+                  ],
                 },
               ],
             },

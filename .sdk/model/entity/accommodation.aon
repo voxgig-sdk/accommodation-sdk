@@ -48,6 +48,7 @@ main: kit: entity: accommodation: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "LastChange"
       req: false
       short: "Last modification timestamp"
@@ -144,8 +145,10 @@ main: kit: entity: accommodation: {
           }
           method: "GET"
           orig: "/Accommodation"
-          parts: [
-            "Accommodation"
+          segments: [
+            {
+              lit: "Accommodation"
+            }
           ]
           select: {
             exist: [

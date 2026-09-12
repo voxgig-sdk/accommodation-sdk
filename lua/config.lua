@@ -67,6 +67,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "LastChange",
             ["short"] = "Last modification timestamp",
             ["type"] = "`$STRING`",
@@ -152,8 +153,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/Accommodation",
-                ["parts"] = {
-                  "Accommodation",
+                ["segments"] = {
+                  {
+                    ["lit"] = "Accommodation",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -171,6 +174,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.Items`",
+                },
+                ["parts"] = {
+                  "Accommodation",
                 },
               },
             },
