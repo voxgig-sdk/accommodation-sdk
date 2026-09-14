@@ -105,7 +105,7 @@ local results, err = client:Accommodation():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/accommodation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/releases) |
+| TypeScript | `@voxgig-sdk/accommodation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/releases) |
 | Python | `voxgig-sdk-accommodation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/releases) |
 | PHP | `voxgig-sdk/accommodation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/accommodation-sdk/go` | `go get github.com/voxgig-sdk/accommodation-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Accommodation():list()
 ### TypeScript
 
 ```ts
-import { AccommodationSDK } from '@voxgig-sdk/accommodation'
+import { AccommodationSDK } from '@voxgig-sdk/accommodation-sdk'
 
 const client = new AccommodationSDK()
 

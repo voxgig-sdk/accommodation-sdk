@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { AccommodationSDK } from '@voxgig-sdk/accommodation'
+import { AccommodationSDK } from '@voxgig-sdk/accommodation-sdk'
 
 const client = new AccommodationSDK()
 ```
@@ -421,7 +421,7 @@ accommodation/
 Import the SDK from the package root:
 
 ```ts
-import { AccommodationSDK } from '@voxgig-sdk/accommodation'
+import { AccommodationSDK } from '@voxgig-sdk/accommodation-sdk'
 ```
 
 ### Entity state
