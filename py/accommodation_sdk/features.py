@@ -1,12 +1,18 @@
 # Accommodation SDK feature factory
 
 from accommodation_sdk.feature.base_feature import AccommodationBaseFeature
+from accommodation_sdk.feature.ratelimit_feature import AccommodationRatelimitFeature
+from accommodation_sdk.feature.retry_feature import AccommodationRetryFeature
 from accommodation_sdk.feature.test_feature import AccommodationTestFeature
+from accommodation_sdk.feature.timeout_feature import AccommodationTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: AccommodationBaseFeature(),
+    "ratelimit": lambda: AccommodationRatelimitFeature(),
+    "retry": lambda: AccommodationRetryFeature(),
     "test": lambda: AccommodationTestFeature(),
+    "timeout": lambda: AccommodationTimeoutFeature(),
 }
 
 
