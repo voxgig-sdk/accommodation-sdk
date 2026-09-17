@@ -105,12 +105,12 @@ local results, err = client:Accommodation():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/accommodation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/releases) |
-| Python | `voxgig-sdk-accommodation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/releases) |
-| PHP | `voxgig-sdk/accommodation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/releases) |
+| TypeScript | `@voxgig-sdk/accommodation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/tags) |
+| Python | `voxgig-sdk-accommodation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/tags) |
+| PHP | `voxgig-sdk/accommodation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/accommodation-sdk/go` | `go get github.com/voxgig-sdk/accommodation-sdk/go@latest` |
-| Ruby | `voxgig-sdk-accommodation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/releases) |
-| Lua | `voxgig-sdk-accommodation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/releases) |
+| Ruby | `voxgig-sdk-accommodation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/tags) |
+| Lua | `voxgig-sdk-accommodation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/accommodation-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/accommodation-sdk/go-cli` | `go install github.com/voxgig-sdk/accommodation-sdk/go-cli/cmd/accommodation@latest` |
 | Go MCP server | `github.com/voxgig-sdk/accommodation-sdk/go-mcp` | `go get github.com/voxgig-sdk/accommodation-sdk/go-mcp@latest` |
 
