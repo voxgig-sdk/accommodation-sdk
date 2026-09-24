@@ -19,7 +19,6 @@ import type {
   AccommodationListMatch,
 } from '../AccommodationTypes'
 
-// TODO: needs Entity superclass
 class AccommodationEntity extends AccommodationEntityBase<Accommodation> {
 
   constructor(client: AccommodationSDK, entopts: any) {

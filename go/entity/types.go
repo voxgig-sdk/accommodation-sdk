@@ -1,7 +1,7 @@
 // Typed models for the Accommodation SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,16 +14,6 @@ import (
 
 // Accommodation is the typed data model for the accommodation entity.
 type Accommodation struct {
-	AccoDetail *map[string]any `json:"AccoDetail,omitempty"`
-	AccoTypeId *string `json:"AccoTypeId,omitempty"`
-	Active *bool `json:"Active,omitempty"`
-	ContactInfos *map[string]any `json:"ContactInfos,omitempty"`
-	Features *[]any `json:"Features,omitempty"`
-	GpsInfo *[]any `json:"GpsInfo,omitempty"`
-	Id *string `json:"Id,omitempty"`
-	LastChange *string `json:"LastChange,omitempty"`
-	LocationInfo *map[string]any `json:"LocationInfo,omitempty"`
-	Shortname *string `json:"Shortname,omitempty"`
 }
 
 // AccommodationListMatch is the typed request payload for Accommodation.ListTyped.

@@ -43,7 +43,7 @@ local accommodations, err = client:Accommodation():list()
 if err then error(err) end
 
 for _, item in ipairs(accommodations) do
-  print(item["AccoTypeId"])
+  print(item)
 end
 ```
 

@@ -1,0 +1,192 @@
+# Entity: accommodation
+
+main: kit: entity: accommodation: {
+
+  alias: field: {}
+
+  fields: {
+    AccoDetail: {
+      h: "Acco Detail"
+      n: "AccoDetail"
+      r: false
+      sh: "Detailed information about the accommodation"
+      t: "`$OBJECT`"
+    }
+    AccoTypeId: {
+      h: "Acco Type Id"
+      n: "AccoTypeId"
+      r: false
+      sh: "Type identifier (e.g., hotel, guesthouse)"
+      t: "`$STRING`"
+    }
+    Active: {
+      h: "Active"
+      n: "Active"
+      r: false
+      sh: "Whether the accommodation is active"
+      t: "`$BOOLEAN`"
+    }
+    ContactInfos: {
+      h: "Contact Infos"
+      n: "ContactInfos"
+      r: false
+      sh: "Contact information"
+      t: "`$OBJECT`"
+    }
+    Features: {
+      h: "Features"
+      n: "Features"
+      r: false
+      sh: "List of features and amenities"
+      t: "`$ARRAY`"
+    }
+    GpsInfo: {
+      h: "Gps Info"
+      n: "GpsInfo"
+      r: false
+      sh: "GPS coordinates"
+      t: "`$ARRAY`"
+    }
+    Id: {
+      h: "Id"
+      n: "Id"
+      r: false
+      sh: "Unique identifier for the accommodation"
+      t: "`$STRING`"
+    }
+    LastChange: {
+      fo: "date-time"
+      h: "Last Change"
+      n: "LastChange"
+      r: false
+      sh: "Last modification timestamp"
+      t: "`$STRING`"
+    }
+    LocationInfo: {
+      h: "Location Info"
+      n: "LocationInfo"
+      r: false
+      sh: "Geographic location information"
+      t: "`$OBJECT`"
+    }
+    Shortname: {
+      h: "Shortname"
+      n: "Shortname"
+      r: false
+      sh: "Short name of the accommodation"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "accommodation"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /Accommodation"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "active"
+                or: "active"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "field"
+                or: "field"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "langfilter"
+                or: "langfilter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "locfilter"
+                or: "locfilter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "odhactive"
+                or: "odhactive"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "pagenumber"
+                or: "pagenumber"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "pagesize"
+                or: "pagesize"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "searchfilter"
+                or: "searchfilter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "seed"
+                or: "seed"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/Accommodation"
+          q: {
+            exist: [
+              "active"
+              "field"
+              "langfilter"
+              "locfilter"
+              "odhactive"
+              "pagenumber"
+              "pagesize"
+              "searchfilter"
+              "seed"
+            ]
+          }
+          s: [
+            {
+              lit: "Accommodation"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.Items`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

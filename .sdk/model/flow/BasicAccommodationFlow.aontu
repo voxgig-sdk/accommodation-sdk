@@ -1,0 +1,22 @@
+# BasicAccommodationFlow
+
+main: kit: flow: BasicAccommodationFlow:
+{
+  entity: "accommodation",
+  kind: "basic",
+  name: "BasicAccommodationFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "accommodation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAccommodationFlow"
+}

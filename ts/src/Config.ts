@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,54 +132,64 @@ class Config {
       "fields": [
         {
           "name": "AccoDetail",
-          "short": "Detailed information about the accommodation",
-          "type": "`$OBJECT`"
+          "title": "Acco Detail",
+          "type": "`$OBJECT`",
+          "short": "Detailed information about the accommodation"
         },
         {
           "name": "AccoTypeId",
-          "short": "Type identifier (e.g., hotel, guesthouse)",
-          "type": "`$STRING`"
+          "title": "Acco Type Id",
+          "type": "`$STRING`",
+          "short": "Type identifier (e.g., hotel, guesthouse)"
         },
         {
           "name": "Active",
-          "short": "Whether the accommodation is active",
-          "type": "`$BOOLEAN`"
+          "title": "Active",
+          "type": "`$BOOLEAN`",
+          "short": "Whether the accommodation is active"
         },
         {
           "name": "ContactInfos",
-          "short": "Contact information",
-          "type": "`$OBJECT`"
+          "title": "Contact Infos",
+          "type": "`$OBJECT`",
+          "short": "Contact information"
         },
         {
           "name": "Features",
-          "short": "List of features and amenities",
-          "type": "`$ARRAY`"
+          "title": "Features",
+          "type": "`$ARRAY`",
+          "short": "List of features and amenities"
         },
         {
           "name": "GpsInfo",
-          "short": "GPS coordinates",
-          "type": "`$ARRAY`"
+          "title": "Gps Info",
+          "type": "`$ARRAY`",
+          "short": "GPS coordinates"
         },
         {
           "name": "Id",
-          "short": "Unique identifier for the accommodation",
-          "type": "`$STRING`"
+          "title": "Id",
+          "type": "`$STRING`",
+          "short": "Unique identifier for the accommodation"
         },
         {
-          "format": "date-time",
           "name": "LastChange",
+          "title": "Last Change",
+          "type": "`$STRING`",
           "short": "Last modification timestamp",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "LocationInfo",
-          "short": "Geographic location information",
-          "type": "`$OBJECT`"
+          "title": "Location Info",
+          "type": "`$OBJECT`",
+          "short": "Geographic location information"
         },
         {
           "name": "Shortname",
-          "short": "Short name of the accommodation",
-          "type": "`$STRING`"
+          "title": "Shortname",
+          "type": "`$STRING`",
+          "short": "Short name of the accommodation"
         }
       ],
       "name": "accommodation",
@@ -196,66 +199,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "active",
-                    "orig": "active",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "field",
-                    "orig": "field",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "langfilter",
-                    "orig": "langfilter",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "locfilter",
-                    "orig": "locfilter",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "odhactive",
-                    "orig": "odhactive",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "example": 1,
-                    "kind": "query",
-                    "name": "pagenumber",
-                    "orig": "pagenumber",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 10,
-                    "kind": "query",
-                    "name": "pagesize",
-                    "orig": "pagesize",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "searchfilter",
-                    "orig": "searchfilter",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "seed",
-                    "orig": "seed",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/Accommodation",
@@ -264,6 +207,74 @@ class Config {
                   "lit": "Accommodation"
                 }
               ],
+              "parts": [
+                "Accommodation"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.Items`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "active",
+                    "orig": "active",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "field",
+                    "orig": "field",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "langfilter",
+                    "orig": "langfilter",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "locfilter",
+                    "orig": "locfilter",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "odhactive",
+                    "orig": "odhactive",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "pagenumber",
+                    "orig": "pagenumber",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 1
+                  },
+                  {
+                    "name": "pagesize",
+                    "orig": "pagesize",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 10
+                  },
+                  {
+                    "name": "searchfilter",
+                    "orig": "searchfilter",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "seed",
+                    "orig": "seed",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "active",
@@ -276,14 +287,7 @@ class Config {
                   "searchfilter",
                   "seed"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.Items`"
-              },
-              "parts": [
-                "Accommodation"
-              ]
+              }
             }
           ]
         }
