@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 AccommodationUtility.registrar = ->(u) {
   u.clean = AccommodationUtilities::Clean
+  u.clean_add = AccommodationUtilities::CleanAdd
+  u.clean_explain = AccommodationUtilities::CleanExplain
   u.done = AccommodationUtilities::Done
   u.make_error = AccommodationUtilities::MakeError
   u.feature_add = AccommodationUtilities::FeatureAdd

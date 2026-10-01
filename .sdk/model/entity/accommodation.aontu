@@ -101,7 +101,7 @@ main: kit: entity: accommodation: {
               {
                 k: "query"
                 n: "field"
-                or: "field"
+                or: "fields"
                 r: false
                 t: "`$STRING`"
               }

@@ -206,7 +206,7 @@ class AccommodationConfig
                       ],
                       [
                         'name' => 'field',
-                        'orig' => 'field',
+                        'orig' => 'fields',
                         'type' => '`$STRING`',
                         'kind' => 'query',
                       ],

@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 AccommodationUtility::setRegistrar(function (AccommodationUtility $u): void {
     $u->clean = [AccommodationClean::class, 'call'];
+    $u->clean_add = [AccommodationClean::class, 'add'];
+    $u->clean_explain = [AccommodationDone::class, 'clean_explain'];
     $u->done = [AccommodationDone::class, 'call'];
     $u->make_error = [AccommodationMakeError::class, 'call'];
     $u->feature_add = [AccommodationFeatureAdd::class, 'call'];

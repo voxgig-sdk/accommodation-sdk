@@ -209,7 +209,7 @@ def make_config():
                     },
                     {
                       "name": "field",
-                      "orig": "field",
+                      "orig": "fields",
                       "type": "`$STRING`",
                       "kind": "query",
                     },
