@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { AccommodationSDK, BaseFeature, stdutil } from '../../..'
+import { AccommodationSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,64 @@ describe('AccommodationEntity', async () => {
   })
 
 
+  class FailHook extends BaseFeature {
+    name = 'failhook'
+    version = '0.0.1'
+    active = true
+    unexpected = 0
+    init() { }
+    PreSpec() { throw new Error('accommodation hook failed') }
+    PreUnexpected() { this.unexpected++ }
+  }
+
+  test('stream-error', async () => {
+    const offline = { net: { offline: true } }
+    await assert.rejects(async () => {
+      for await (const _item of AccommodationSDK.test(offline).Accommodation().stream('list')) { }
+    }, /offline/)
+
+    for await (const _item of AccommodationSDK.test(offline).Accommodation()
+      .stream('list', undefined, { ctrl: { throw: false } })) { }
+
+    if (null != (config as any).feature?.rbac) {
+      const denied = AccommodationSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } })
+      await assert.rejects(async () => {
+        for await (const _item of denied.Accommodation().stream('list')) { }
+      }, (err: any) => 'rbac_denied' === err.code)
+    }
+  })
+
+  test('stream-ctrl', async () => {
+    const explain: any = {}
+    const ctrl: any = { explain }
+    for await (const _item of AccommodationSDK.test().Accommodation().stream('list', undefined, { ctrl })) { }
+    assert.deepStrictEqual(Object.keys(ctrl), ['explain'])
+    assert(explain === ctrl.explain && 0 < Object.keys(explain).length)
+  })
+
+  test('unexpected', async () => {
+    const hook = new FailHook()
+    const client = new AccommodationSDK({ feature: { test: { active: true } }, extend: [hook] })
+    await assert.rejects(client.Accommodation().list(), /hook failed/)
+    assert(0 < hook.unexpected)
+
+    const fired = hook.unexpected
+    assert.strictEqual(await client.Accommodation().list(undefined, { throw: false }), undefined)
+    assert(fired < hook.unexpected)
+  })
+
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = AccommodationSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Accommodation().list({"active":"x"} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.ACCOMMODATION_TEST_LIVE
@@ -51,7 +109,7 @@ describe('AccommodationEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"AccoDetail":{"a":true,"h":"Acco Detail","n":"AccoDetail","r":false,"sh":"Detailed information about the accommodation","t":"`$OBJECT`","key$":"AccoDetail","index$":0},"AccoTypeId":{"a":true,"h":"Acco Type Id","n":"AccoTypeId","r":false,"sh":"Type identifier (e.g., hotel, guesthouse)","t":"`$STRING`","key$":"AccoTypeId","index$":1},"Active":{"a":true,"h":"Active","n":"Active","r":false,"sh":"Whether the accommodation is active","t":"`$BOOLEAN`","key$":"Active","index$":2},"ContactInfos":{"a":true,"h":"Contact Infos","n":"ContactInfos","r":false,"sh":"Contact information","t":"`$OBJECT`","key$":"ContactInfos","index$":3},"Features":{"a":true,"h":"Features","n":"Features","r":false,"sh":"List of features and amenities","t":"`$ARRAY`","key$":"Features","index$":4},"GpsInfo":{"a":true,"h":"Gps Info","n":"GpsInfo","r":false,"sh":"GPS coordinates","t":"`$ARRAY`","key$":"GpsInfo","index$":5},"Id":{"a":true,"h":"Id","n":"Id","r":false,"sh":"Unique identifier for the accommodation","t":"`$STRING`","key$":"Id","index$":6},"LastChange":{"a":true,"fo":"date-time","h":"Last Change","n":"LastChange","r":false,"sh":"Last modification timestamp","t":"`$STRING`","key$":"LastChange","index$":7},"LocationInfo":{"a":true,"h":"Location Info","n":"LocationInfo","r":false,"sh":"Geographic location information","t":"`$OBJECT`","key$":"LocationInfo","index$":8},"Shortname":{"a":true,"h":"Shortname","n":"Shortname","r":false,"sh":"Short name of the accommodation","t":"`$STRING`","key$":"Shortname","index$":9}},"name":"accommodation","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /Accommodation","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"active","or":"active","r":false,"t":"`$BOOLEAN`","index$":0},{"a":true,"k":"query","n":"field","or":"fields","r":false,"t":"`$STRING`","index$":1},{"a":true,"k":"query","n":"langfilter","or":"langfilter","r":false,"t":"`$STRING`","index$":2},{"a":true,"k":"query","n":"locfilter","or":"locfilter","r":false,"t":"`$STRING`","index$":3},{"a":true,"k":"query","n":"odhactive","or":"odhactive","r":false,"t":"`$BOOLEAN`","index$":4},{"a":true,"ex":1,"k":"query","n":"pagenumber","or":"pagenumber","r":false,"t":"`$INTEGER`","index$":5},{"a":true,"ex":10,"k":"query","n":"pagesize","or":"pagesize","r":false,"t":"`$INTEGER`","index$":6},{"a":true,"k":"query","n":"searchfilter","or":"searchfilter","r":false,"t":"`$STRING`","index$":7},{"a":true,"k":"query","n":"seed","or":"seed","r":false,"t":"`$STRING`","index$":8}]},"k":"http","m":"GET","o":"/Accommodation","q":{"exist":["active","field","langfilter","locfilter","odhactive","pagenumber","pagesize","searchfilter","seed"]},"r":{},"s":[{"lit":"Accommodation"}],"t":{"req":"`reqdata`","res":"`body.Items`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"accommodation","name__orig":"accommodation","Name":"Accommodation","name_":"accommodation","name-":"accommodation","NAME":"ACCOMMODATION","index$":0}, {"active":true,"entity":"accommodation","key$":"BasicAccommodationFlow","kind":"basic","name":"BasicAccommodationFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"accommodation_ref01"}}],"index$":0}]}, 'Accommodation', {"GET /Accommodation":{"protocol":"http","parameters":[{"name":"pagesize","in":"query","description":"Number of results to return per page","required":false,"schema":{"type":"integer","default":10,"minimum":1,"maximum":100},"index$":0},{"name":"pagenumber","in":"query","description":"Page number for pagination","required":false,"schema":{"type":"integer","default":1,"minimum":1},"index$":1},{"name":"seed","in":"query","description":"Seed for random sorting to ensure consistent results","required":false,"schema":{"type":"string"},"index$":2},{"name":"locfilter","in":"query","description":"Filter by location (e.g., region, municipality, or tourism association)","required":false,"schema":{"type":"string"},"index$":3},{"name":"langfilter","in":"query","description":"Language filter for localized content (e.g., en, de, it)","required":false,"schema":{"type":"string"},"index$":4},{"name":"fields","in":"query","description":"Comma-separated list of fields to include in the response","required":false,"schema":{"type":"string"},"index$":5},{"name":"searchfilter","in":"query","description":"Search term to filter accommodations by name or description","required":false,"schema":{"type":"string"},"index$":6},{"name":"active","in":"query","description":"Filter by active status","required":false,"schema":{"type":"boolean"},"index$":7},{"name":"odhactive","in":"query","description":"Filter by ODH active status","required":false,"schema":{"type":"boolean"},"index$":8}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"AccoDetail":{"a":true,"h":"Acco Detail","n":"AccoDetail","r":false,"sh":"Detailed information about the accommodation","t":"`$OBJECT`","key$":"AccoDetail","index$":0},"AccoTypeId":{"a":true,"h":"Acco Type Id","n":"AccoTypeId","r":false,"sh":"Type identifier (e.g., hotel, guesthouse)","t":"`$STRING`","key$":"AccoTypeId","index$":1},"Active":{"a":true,"h":"Active","n":"Active","r":false,"sh":"Whether the accommodation is active","t":"`$BOOLEAN`","key$":"Active","index$":2},"ContactInfos":{"a":true,"h":"Contact Infos","n":"ContactInfos","r":false,"sh":"Contact information","t":"`$OBJECT`","key$":"ContactInfos","index$":3},"Features":{"a":true,"h":"Features","n":"Features","r":false,"sh":"List of features and amenities","t":"`$ARRAY`","key$":"Features","index$":4},"GpsInfo":{"a":true,"h":"Gps Info","n":"GpsInfo","r":false,"sh":"GPS coordinates","t":"`$ARRAY`","key$":"GpsInfo","index$":5},"Id":{"a":true,"h":"Id","n":"Id","r":false,"sh":"Unique identifier for the accommodation","t":"`$STRING`","key$":"Id","index$":6},"LastChange":{"a":true,"fo":"date-time","h":"Last Change","n":"LastChange","r":false,"sh":"Last modification timestamp","t":"`$STRING`","key$":"LastChange","index$":7},"LocationInfo":{"a":true,"h":"Location Info","n":"LocationInfo","r":false,"sh":"Geographic location information","t":"`$OBJECT`","key$":"LocationInfo","index$":8},"Shortname":{"a":true,"h":"Shortname","n":"Shortname","r":false,"sh":"Short name of the accommodation","t":"`$STRING`","key$":"Shortname","index$":9}},"name":"accommodation","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /Accommodation","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"active","or":"active","r":false,"t":"`$BOOLEAN`","index$":0},{"a":true,"k":"query","n":"field","or":"fields","r":false,"t":"`$STRING`","index$":1},{"a":true,"k":"query","n":"langfilter","or":"langfilter","r":false,"t":"`$STRING`","index$":2},{"a":true,"k":"query","n":"locfilter","or":"locfilter","r":false,"t":"`$STRING`","index$":3},{"a":true,"k":"query","n":"odhactive","or":"odhactive","r":false,"t":"`$BOOLEAN`","index$":4},{"a":true,"ex":1,"k":"query","n":"pagenumber","or":"pagenumber","r":false,"t":"`$INTEGER`","index$":5},{"a":true,"ex":10,"k":"query","n":"pagesize","or":"pagesize","r":false,"t":"`$INTEGER`","index$":6},{"a":true,"k":"query","n":"searchfilter","or":"searchfilter","r":false,"t":"`$STRING`","index$":7},{"a":true,"k":"query","n":"seed","or":"seed","r":false,"t":"`$STRING`","index$":8}]},"k":"http","m":"GET","o":"/Accommodation","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"Accommodation"}],"t":{"req":"`reqdata`","res":"`body.Items`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"accommodation","name__orig":"accommodation","Name":"Accommodation","name_":"accommodation","name-":"accommodation","NAME":"ACCOMMODATION","index$":0}, {"active":true,"entity":"accommodation","key$":"BasicAccommodationFlow","kind":"basic","name":"BasicAccommodationFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"accommodation_ref01"}}],"index$":0}]}, 'Accommodation', {"GET /Accommodation":{"protocol":"http","parameters":[{"name":"pagesize","in":"query","description":"Number of results to return per page","required":false,"schema":{"type":"integer","default":10,"minimum":1,"maximum":100},"index$":0},{"name":"pagenumber","in":"query","description":"Page number for pagination","required":false,"schema":{"type":"integer","default":1,"minimum":1},"index$":1},{"name":"seed","in":"query","description":"Seed for random sorting to ensure consistent results","required":false,"schema":{"type":"string"},"index$":2},{"name":"locfilter","in":"query","description":"Filter by location (e.g., region, municipality, or tourism association)","required":false,"schema":{"type":"string"},"index$":3},{"name":"langfilter","in":"query","description":"Language filter for localized content (e.g., en, de, it)","required":false,"schema":{"type":"string"},"index$":4},{"name":"fields","in":"query","description":"Comma-separated list of fields to include in the response","required":false,"schema":{"type":"string"},"index$":5},{"name":"searchfilter","in":"query","description":"Search term to filter accommodations by name or description","required":false,"schema":{"type":"string"},"index$":6},{"name":"active","in":"query","description":"Filter by active status","required":false,"schema":{"type":"boolean"},"index$":7},{"name":"odhactive","in":"query","description":"Filter by ODH active status","required":false,"schema":{"type":"boolean"},"index$":8}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +130,12 @@ describe('AccommodationEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

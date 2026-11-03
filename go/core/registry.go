@@ -12,5 +12,5 @@ var NewTestFeatureFunc func() Feature
 
 var NewTimeoutFeatureFunc func() Feature
 
-var NewAccommodationEntityFunc func(client *AccommodationSDK, entopts map[string]any) AccommodationEntity
+var NewAccommodationEntityFunc func(client *AccommodationSDK, entopts map[string]any) AccommodationEntityBase
 

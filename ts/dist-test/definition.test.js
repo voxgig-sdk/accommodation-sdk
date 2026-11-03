@@ -21,12 +21,16 @@ const PLAN = [
             "langfilter": "v1",
             "locfilter": "v1",
             "odhactive": "v1",
-            "pagenumber": "v1",
-            "pagesize": "v1",
+            "pagenumber": 1,
+            "pagesize": 10,
             "searchfilter": "v1",
             "seed": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "pagesize",
             "pagenumber",
@@ -38,6 +42,44 @@ const PLAN = [
             "active",
             "odhactive"
         ],
+        "queryArgs": [
+            {
+                "name": "active",
+                "wire": "active"
+            },
+            {
+                "name": "field",
+                "wire": "fields"
+            },
+            {
+                "name": "langfilter",
+                "wire": "langfilter"
+            },
+            {
+                "name": "locfilter",
+                "wire": "locfilter"
+            },
+            {
+                "name": "odhactive",
+                "wire": "odhactive"
+            },
+            {
+                "name": "pagenumber",
+                "wire": "pagenumber"
+            },
+            {
+                "name": "pagesize",
+                "wire": "pagesize"
+            },
+            {
+                "name": "searchfilter",
+                "wire": "searchfilter"
+            },
+            {
+                "name": "seed",
+                "wire": "seed"
+            }
+        ],
         "auth": null,
         "status": 200,
         "sample": {
@@ -47,42 +89,42 @@ const PLAN = [
             "Seed": "x",
             "Items": [
                 {
-                    "AccoDetail": {
-                        "Language": "x",
-                        "Name": "x"
-                    },
+                    "Id": "x",
                     "AccoTypeId": "x",
-                    "Active": true,
+                    "Shortname": "x",
+                    "AccoDetail": {
+                        "Name": "x",
+                        "Language": "x"
+                    },
                     "ContactInfos": {
                         "Address": "x",
                         "City": "x",
+                        "ZipCode": "x",
                         "Email": "x",
                         "Phonenumber": "x",
-                        "Url": "x",
-                        "ZipCode": "x"
+                        "Url": "x"
                     },
-                    "Features": [
-                        {
-                            "Id": "x",
-                            "Name": "x"
-                        }
-                    ],
-                    "GpsInfo": [
-                        {
-                            "Altitude": 1,
-                            "Latitude": 1,
-                            "Longitude": 1
-                        }
-                    ],
-                    "Id": "x",
-                    "LastChange": "2026-01-01T00:00:00Z",
                     "LocationInfo": {
                         "RegionInfo": {
                             "Id": "x",
                             "Name": {}
                         }
                     },
-                    "Shortname": "x"
+                    "GpsInfo": [
+                        {
+                            "Latitude": 1,
+                            "Longitude": 1,
+                            "Altitude": 1
+                        }
+                    ],
+                    "Features": [
+                        {
+                            "Id": "x",
+                            "Name": "x"
+                        }
+                    ],
+                    "Active": true,
+                    "LastChange": "2026-01-01T00:00:00Z"
                 }
             ]
         },

@@ -160,18 +160,9 @@ main: kit: entity: accommodation: {
           }
           m: "GET"
           o: "/Accommodation"
-          q: {
-            exist: [
-              "active"
-              "field"
-              "langfilter"
-              "locfilter"
-              "odhactive"
-              "pagenumber"
-              "pagesize"
-              "searchfilter"
-              "seed"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

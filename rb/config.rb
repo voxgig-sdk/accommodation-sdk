@@ -79,6 +79,7 @@ module AccommodationConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -242,18 +243,10 @@ module AccommodationConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "active",
-                      "field",
-                      "langfilter",
-                      "locfilter",
-                      "odhactive",
-                      "pagenumber",
-                      "pagesize",
-                      "searchfilter",
-                      "seed",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

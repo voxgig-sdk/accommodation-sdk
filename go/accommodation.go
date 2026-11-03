@@ -13,7 +13,12 @@ type Context = core.Context
 type Utility = core.Utility
 type Feature = core.Feature
 type Entity = core.Entity
-type AccommodationEntity = core.AccommodationEntity
+type AccommodationEntityBase = core.AccommodationEntityBase
+
+// Deprecated: use AccommodationEntityBase.
+type AccommodationEntity = core.AccommodationEntityBase
+
+type StreamItem = core.StreamItem
 type FetcherFunc = core.FetcherFunc
 type Spec = core.Spec
 type Result = core.Result
@@ -41,7 +46,7 @@ func init() {
 	core.NewTimeoutFeatureFunc = func() core.Feature {
 		return feature.NewTimeoutFeature()
 	}
-	core.NewAccommodationEntityFunc = func(client *core.AccommodationSDK, entopts map[string]any) core.AccommodationEntity {
+	core.NewAccommodationEntityFunc = func(client *core.AccommodationSDK, entopts map[string]any) core.AccommodationEntityBase {
 		return entity.NewAccommodationEntity(client, entopts)
 	}
 }

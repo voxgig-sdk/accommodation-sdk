@@ -93,6 +93,7 @@ class AccommodationConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -256,18 +257,10 @@ class AccommodationConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'active',
-                      'field',
-                      'langfilter',
-                      'locfilter',
-                      'odhactive',
-                      'pagenumber',
-                      'pagesize',
-                      'searchfilter',
-                      'seed',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

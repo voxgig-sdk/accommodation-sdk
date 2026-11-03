@@ -3,5 +3,17 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Contact information",
+      "Detailed information about the accommodation",
+      "List of features and amenities",
+      "Open Data Hub Tourism API Server",
+      "Successful response with accommodation data",
+      "This API provides access to a comprehensive dataset of accommodations, including hotels, guesthouses, and similar types of lodging. Users can retrieve information on various accommodation options, facilitating planning and booking for travelers.",
+      "Type identifier (for example, hotel, guesthouse)",
+      "Whether the accommodation is active"
+    ]
+  }
 }

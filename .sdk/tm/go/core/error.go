@@ -12,6 +12,8 @@ type AccommodationError struct {
 	Ctx    *Context `json:"-"`
 	Result any
 	Spec   any
+	// The HTTP status, -1 when there was no response.
+	Status int
 }
 
 func NewAccommodationError(code string, msg string, ctx *Context) *AccommodationError {
@@ -21,7 +23,12 @@ func NewAccommodationError(code string, msg string, ctx *Context) *Accommodation
 		Code:               code,
 		Msg:                msg,
 		Ctx:                ctx,
+		Status:             -1,
 	}
+}
+
+func (e *AccommodationError) NotFound() bool {
+	return 404 == e.Status
 }
 
 func (e *AccommodationError) Error() string {
@@ -35,6 +42,7 @@ func (e *AccommodationError) Record() map[string]any {
 		"sdk":     e.Sdk,
 		"code":    e.Code,
 		"message": e.Msg,
+		"status":  e.Status,
 		"result":  e.Result,
 		"spec":    e.Spec,
 	}
